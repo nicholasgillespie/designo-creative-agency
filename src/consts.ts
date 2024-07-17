@@ -1,6 +1,6 @@
 export const CONFIG_SITE = "https://nicholasgillespie.github.io";
 export const CONFIG_BASE: string =
-  process.env.NODE_ENV === "production" ? "/template" : "";
+  process.env.NODE_ENV === "production" ? "/designo" : "";
 
 export const SITE_TITLE = "Designo Creative Agency";
 export const SITE_NAVIGATION = [
