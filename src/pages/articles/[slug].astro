@@ -1,0 +1,115 @@
+---
+// Imports
+import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import { getCollection } from 'astro:content';
+import { CONFIG_BASE } from "../../consts";
+
+// Dynamic Data & Logic 
+export async function getStaticPaths() {
+  const items = await getCollection("articles");
+  const paginationData = items.map((article, index) => ({
+    slug: article.slug,
+    title: article.data.title,
+    order: article.data.order,
+  }));
+      
+  return items.map(item => ({
+    params: { slug: item.slug }, 
+    props: { item, paginationData },
+  }));
+}
+
+// Component Props
+const { item, paginationData } = Astro.props;
+---
+
+<LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
+  <section class="hero | l-wrapper">
+    <picture class="hero__image | l-frame">
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-hero@2x.jpg 2x`} 
+				media="(min-width: 55.001rem)" 
+				type="image/jpg"
+			/>
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-hero@2x.jpg 2x`} 
+				media="(min-width: 40.001rem)" .
+				type="image/jpg"
+			/>
+			<img 
+				src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero.jpg`} 
+				srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero@2x.jpg 2x`} 
+				alt={`Image of a screen displaying the Manage project`} 
+				width="311"
+				height="140"
+				loading="eager"
+			/>
+		</picture>
+  </section>
+
+  <section class="project | l-wrapper l-region l-sidebar">
+    <div class="project__meta | l-switcher | u-border--block">
+      <div class="l-flow">
+        <h2>{item.data.title}</h2>
+        <p>{item.data.description}</p>
+        <ul role="list" class="project__meta--categories | l-cluster">
+          {item.data.categories.map(cat => (
+            <li>{cat}</li>
+          ))}
+        </ul>
+        <ul role="list" class="project__meta--technologies | l-cluster">
+          {item.data.technologies.map(tech => (
+            <li>{tech}</li>
+          ))}
+        </ul>
+      </div>
+      <p inert>{item.data.description}</p>
+    </div>
+
+    <div class="project__preview | l-flow">
+      <h3>Project Background</h3>
+      <p>{item.data.background}</p>
+      <h3>Static Previews</h3>
+      <picture class="project__preview--image | l-frame">
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          media="(min-width: 55.001rem)" 
+          type="image/jpg"
+        />
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          media="(min-width: 40.001rem)" .
+          type="image/jpg"
+        />
+        <img 
+          src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1.jpg`} 
+          srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          alt={`Image of a screen displaying the Manage project`} 
+          width="311"
+          height="196"
+          loading="eager"
+        />
+      </picture>
+      <picture class="project__preview--image | l-frame">
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          media="(min-width: 55.001rem)" 
+          type="image/jpg"
+        />
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          media="(min-width: 40.001rem)" .
+          type="image/jpg"
+        />
+        <img 
+          src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2.jpg`} 
+          srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          alt={`Image of a screen displaying the Manage project`} 
+          width="311"
+          height="196"
+          loading="eager"
+        />
+      </picture>
+    </div>
+  </section>
+</LayoutDefault>

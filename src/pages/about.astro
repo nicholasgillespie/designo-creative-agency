@@ -1,0 +1,15 @@
+---
+// Imports
+import LayoutDefault from '../layouts/LayoutDefault.astro';
+import { CONFIG_BASE } from "../consts.ts";
+
+// Static Data
+const metaTitle = "About";
+const metaDescription = "Discover Alex Spencer's journey in web development and design. Based in London, UK, offering innovative web solutions.";
+---
+
+<LayoutDefault {metaTitle} {metaDescription}>
+	<section class="hero | l-wrapper">
+		<h1>about</h1>
+	</section>
+</LayoutDefault>

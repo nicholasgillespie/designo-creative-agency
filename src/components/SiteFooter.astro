@@ -1,0 +1,19 @@
+---
+// Imports
+import CompNavigation from "./CompNavigation.astro";
+import CompLogoLink from "./CompLogoLink.astro";
+import CompSocialLinks from "./CompSocialLinks.astro";
+---
+
+<footer class="site-footer">
+  <div class="l-wrapper l-region">
+    <div class="l-repel">
+      <div class="l-cluster">
+        <CompLogoLink variant="secondary" />
+        <!-- Omit label if navigation links are identical. -->
+        <CompNavigation/>
+      </div>
+      <CompSocialLinks />
+    </div>
+  </div>
+</footer>

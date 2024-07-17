@@ -1,0 +1,21 @@
+{
+  "name": "template-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.11.5"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.1.6",
+    "astro-purgecss": "^4.1.1",
+    "postcss-preset-env": "^9.6.0",
+    "sass": "^1.77.8"
+  }
+}

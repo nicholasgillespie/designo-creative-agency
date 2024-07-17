@@ -1,0 +1,40 @@
+---
+// Imports
+import { SITE_NAVIGATION, CONFIG_BASE } from "../consts";
+
+// Component Props
+const { label } = Astro.props;
+
+// Dynamic Data & Logic
+const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
+const currentPath = currentUrl.pathname.replace(/\/$/, '');
+
+const isCurrentPage = (itemUrl) => {
+  // Normalize itemUrl by removing trailing slashes
+  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
+  const basePathsSegments = currentPath.split('/');
+  const segmentIndex = CONFIG_BASE ? 2 : 1;
+
+  // Check for an exact match
+  if (currentPath === normalizedItemUrl) return true;
+  // Check if currentPath matches itemUrl with CONFIG_BASE and segment
+  if (itemUrl === `/${basePathsSegments[segmentIndex]}` && currentPath.startsWith(`${CONFIG_BASE}/${basePathsSegments[segmentIndex]}`)) {
+    return true
+  };
+
+  return false;
+};
+---
+
+<nav aria-label={label}>
+  <ul role="list" class="l-cluster">
+    {SITE_NAVIGATION.map(item => (
+      <li>
+        <a 
+          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
+          aria-current={isCurrentPage(item.url) ? 'page' : undefined}
+        >{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

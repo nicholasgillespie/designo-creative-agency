@@ -1,0 +1,24 @@
+---
+// Imports
+// import CompSvgSheet from "./CompSvgSheet.astro";
+import { CONFIG_BASE, SITE_TITLE } from "../consts";
+---
+
+<a href={CONFIG_BASE === "" ? "/" : CONFIG_BASE}>
+  <svg class="site-logo" fill="currentColor" viewBox="0 0 61 32">
+    <use xlink:href="#site-logo"></use>
+  </svg>
+  <span class="u-vh">{SITE_TITLE}</span>  
+</a>
+<!-- <CompSvgSheet /> -->
+
+<style lang="scss">
+  a {
+    display: inline-flex;
+  }
+
+  .site-logo {
+    block-size: 1lh;
+    font-size: 1.5em;
+  }
+</style>

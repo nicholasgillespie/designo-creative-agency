@@ -1,0 +1,27 @@
+$viewports: (
+  "title": "Viewports",
+  "description":
+    "Defines viewport widths for fluid type, spacing scales, and breakpoints for responsive design. The 'min' and 'max' values are imperative for generating fluid type and spacing scales. The 'mid' and 'lrg' values are used to set responsive breakpoints.",
+  "items": (
+    (
+      "name": "min",
+      "value": 20,
+      // 320px - Critical for fluid typography
+    ),
+    (
+      "name": "mid",
+      "value": 37.5,
+      // 600px - Used for tablet breakpoint
+    ),
+    (
+      "name": "lrg",
+      "value": 50,
+      // 800px - Used for desktop breakpoint
+    ),
+    (
+      "name": "max",
+      "value": 80,
+      // 1280px - Critical for fluid typography and widescreen layouts
+    ),
+  ),
+);

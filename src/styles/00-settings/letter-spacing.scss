@@ -1,0 +1,31 @@
+$letter-spacing: (
+  "title": "Letter-spacing",
+  "description": "Uniform letter-spacing adjustments using ch units",
+  "items": (
+    (
+      "name": "Extra Tight",
+      "value": "-0.05ch",
+      // Slightly tighter, for dense text or to fit more characters in a line
+    ),
+    (
+      "name": "Tight",
+      "value": "-0.025ch",
+      // Tighter than normal but less so than Extra Tight, for subtle adjustments
+    ),
+    (
+      "name": "Base",
+      "value": "normal",
+      // Standard spacing, equivalent to the default spacing of the font
+    ),
+    (
+      "name": "Loose",
+      "value": "0.025ch",
+      // Looser than normal, for improved readability or aesthetic effect
+    ),
+    (
+      "name": "Extra Loose",
+      "value": "0.05ch",
+      // Much looser, for headings or special text where additional spacing is beneficial
+    ),
+  ),
+);

@@ -1,0 +1,16 @@
+---
+// Imports
+import LayoutDefault from '../layouts/LayoutDefault.astro';
+import { CONFIG_BASE } from "../consts";
+
+// Static Data
+const metaTitle = "404";
+const metaDescription = "Page not found. Return to Alex Spencer's portfolio to discover unique web development projects, modern design insights, and learn about front-end expertise.";
+---
+
+<LayoutDefault {metaTitle} {metaDescription}>
+	<section class="l-wrapper">
+		<h1>404 page</h1>
+		<a href={CONFIG_BASE}>home</a>
+	</section>
+</LayoutDefault>
