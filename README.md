@@ -1,12 +1,12 @@
-# Template
+# Designo Creative Agency
 
-Visit the live site here: [Template Website](https://nicholasgillespie.github.io/template/)
+Visit the live site here: [Designo Creative Agency Website](https://nicholasgillespie.github.io/designo-creative-agency/)
 
 ## Overview
 
-The Template is an Astro and PostCSS-based project, hosted on GitHub Pages. It incorporates the in-development W3C design system, utilizing SCSS syntax for styling.
+The Designo Creative Agency is an Astro and PostCSS-based project, hosted on GitHub Pages. It incorporates the in-development W3C design system, utilizing SCSS syntax for styling.
 
-[![Screenshot of the Template project](./docs/design/preview.jpg)](https://nicholasgillespie.github.io/template/)
+[![Screenshot of the Designo Creative Agency project](./docs/design/preview.jpg)](https://nicholasgillespie.github.io/designo-creative-agency/)
 
 The project uses:
 
@@ -15,7 +15,7 @@ The project uses:
 - **W3C Design System**: An in-development design system that provides a cohesive set of design and code standards.
 - **SCSS**: A CSS preprocessor that adds powerful features like variables, nesting, and mixins to CSS.
 
-You can find the Template project repository on [GitHub](https://github.com/nicholasgillespie/template).
+You can find the Designo Creative Agency project repository on [GitHub](https://github.com/nicholasgillespie/designo-creative-agency).
 
 ## Development Progress
 
@@ -33,5 +33,5 @@ To see the progression of the site development, check out the [Development Log](
 #### Clone the repo
 
 ```bash
-git clone https://github.com/nicholasgillespie/template.git
+git clone https://github.com/nicholasgillespie/designo-creative-agency.git
 ```
