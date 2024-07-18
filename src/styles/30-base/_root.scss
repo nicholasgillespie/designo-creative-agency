@@ -47,8 +47,8 @@
   --radius-l: #{get(space, xl)};
 
   // Decorations
-  --focus-color: #{get(color, slightly-desaturated-cyan)};
-  --border-color: #{get(color, soft-light-grey)};
+  // --focus-color: #{get(color, slightly-desaturated-cyan)};
+  // --border-color: #{get(color, soft-light-grey)};
   --border-width: 1px;
   --border: solid var(--border-width) var(--border-color);
   --shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);

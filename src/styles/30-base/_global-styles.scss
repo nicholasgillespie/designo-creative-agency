@@ -11,9 +11,9 @@
 
 // GLOBAL SETTINGS ////////////////////
 body {
-  accent-color: get(color, slightly-desaturated-cyan);
-  background: get(color, very-light-grey);
-  color: get(color, medium-grey);
+  // accent-color: get(color, slightly-desaturated-cyan);
+  // background: get(color, very-light-grey);
+  // color: get(color, medium-grey);
   font-family: get(font-family, base);
   font-size: get(font-size, base);
   font-weight: get(font-weight, base);
@@ -37,9 +37,9 @@ h2,
 h3,
 h4 {
   font-family: get(font-family, display);
-  font-weight: get(font-weight, bold);
+  font-weight: get(font-weight, medium);
   line-height: get(line-height, flat);
-  color: get(color, grayish-dark-blue);
+  // color: get(color, grayish-dark-blue);
   // text-transform: capitalize;
   text-wrap: balance;
   hyphens: auto;
@@ -55,7 +55,7 @@ h2 {
 }
 
 h3 {
-  font-size: get(font-size, 3);
+  font-size: get(font-size, 1);
   font-weight: get(font-weight, base);
   text-transform: capitalize;
 }
@@ -63,7 +63,7 @@ h3 {
 h4,
 h5,
 h6 {
-  font-size: get(font-size, 3);
+  // font-size: get(font-size, 3);
 }
 
 @supports not (font-size-adjust: from-font) {
@@ -95,19 +95,19 @@ b {
 form {
   .error {
     position: absolute;
-    color: get(color, bright-red);
+    // color: get(color, bright-red);
     inset-block-end: -1.2lh;
-    font-size: get(font-size, -2);
-    font-weight: get(font-weight, bold);
+    // font-size: get(font-size, -2);
+    // font-weight: get(font-weight, bold);
     font-style: italic;
   }
 
   :is(.input-valid, #specBoost) {
-    border: solid var(--border-width) get(color, slightly-desaturated-cyan);
+    // border: solid var(--border-width) get(color, slightly-desaturated-cyan);
   }
 
   :is(.input-error, #specBoost) {
-    border: solid var(--border-width) get(color, bright-red);
+    // border: solid var(--border-width) get(color, bright-red);
   }
 }
 
@@ -126,7 +126,7 @@ textarea {
   border: var(--input-border, solid transparent var(--border-width));
   border-radius: var(--input-radius, var(--radius));
   background: #e6e6e7;
-  color: get(color, grayish-dark-blue);
+  // color: get(color, grayish-dark-blue);
   inline-size: 100%;
 
   &::placeholder {
@@ -140,8 +140,8 @@ label {
 }
 
 label {
-  font-weight: get(font-weight, bold);
-  font-size: get(font-size, -1);
+  // font-weight: get(font-weight, bold);
+  // font-size: get(font-size, -1);
 }
 
 // label::after {
@@ -190,7 +190,7 @@ a {
   }
 
   &[aria-current="page"] {
-    color: get(color, slightly-desaturated-cyan);
+    // color: get(color, slightly-desaturated-cyan);
     // pointer-events: none;
 
     &:hover,

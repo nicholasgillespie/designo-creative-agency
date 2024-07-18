@@ -3,7 +3,7 @@
 .button {
   --button-x-padding: 2.5em;
   --button-y-padding: 1.3em;
-  --button-border-color: #{get(color, grayish-dark-blue)};
+  // --button-border-color: #{get(color, grayish-dark-blue)};
 
   display: inline-flex;
   align-items: center;
@@ -18,14 +18,14 @@
     solid var(--border-width, medium) var(--button-border-color, transparent)
   );
   border-radius: var(--button-radius, 0em);
-  font-size: get(font-size, -2);
+  font-size: get(font-size, base);
   font-family: get(font-family, base);
-  // font-weight: get(font-weight, semi-bold);
+  font-weight: get(font-weight, medium);
   line-height: get(line-height, flat);
   letter-spacing: get(letter-spacing, extra-loose);
   text-transform: uppercase;
   background-color: var(--button-bg, transparent);
-  color: var(--button-text, get(color, grayish-dark-blue));
+  // color: var(--button-text, get(color, grayish-dark-blue));
   min-inline-size: fit-content;
 
   & span {
@@ -36,9 +36,9 @@
   &:hover,
   &:focus-visible {
     & span {
-      background-color: get(color, grayish-dark-blue);
-      background-color: var(--button-bg, #{get(color, grayish-dark-blue)});
-      color: get(color, very-light-grey);
+      // background-color: get(color, grayish-dark-blue);
+      // background-color: var(--button-bg, #{get(color, grayish-dark-blue)});
+      // color: get(color, very-light-grey);
     }
 
     & svg {
@@ -61,8 +61,8 @@
   }
 
   &[data-button-variant="special"] {
-    background-color: get(color, dark-blue);
-    color: get(color, very-light-grey);
+    // background-color: get(color, dark-blue);
+    // color: get(color, very-light-grey);
 
     & span:has(svg) {
       color: #5fb4a2;
@@ -82,7 +82,7 @@
       --button-border-color: #55a292;
 
       & span:has(svg) {
-        color: get(color, very-light-grey);
+        // color: get(color, very-light-grey);
         background-color: #55a292;
       }
     }
