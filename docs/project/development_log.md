@@ -40,9 +40,9 @@ Analyze and extract essential design elements from design files.
 1. Review the Figma file or design mockups.
    - Figma Design: [Designo Multi-Page Website](https://www.figma.com/design/RB7sXbL1kX3kaEbbtCCe5q/designo-multi-page-website?node-id=0-1)
 2. Partially define project design tokens (e.g., colors, typography). Note: Design tokens for form/input elements are pending.
-   - Tokens Directory: [Design Tokens](./src/styles/00-settings)
+   - Tokens Directory: [Design Tokens](../../src/styles/00-settings)
 3. Identify sections, main elements/components, and macro/micro layouts.
-   - Macro Layout Reference: [layout-macro.jpg](./docs/design/macro-layout.jpg)
+   - Macro Layout Reference: [layout-macro.jpg](../design/macro-layout.jpg)
 
 #### Time Management
 
