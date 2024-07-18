@@ -42,7 +42,7 @@ Analyze and extract essential design elements from design files.
 2. Partially define project design tokens (e.g., colors, typography). Note: Design tokens for form/input elements are pending.
    - Tokens Directory: [Design Tokens](../../src/styles/00-settings)
 3. Identify sections, main elements/components, and macro/micro layouts.
-   - Macro Layout Reference: [layout-macro.jpg](../design/macro-layout.jpg)
+   - Macro Layout Reference: [layout-macro.jpg](../design/layout-macro.jpg)
 
 #### Time Management
 
