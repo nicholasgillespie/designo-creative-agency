@@ -6,7 +6,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  outline: solid 1px lightgray;
+  // outline: solid 1px lightpink;
 }
 
 // GLOBAL SETTINGS ////////////////////
@@ -27,6 +27,19 @@ body {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.site-header,
+.site-footer {
+  // --space-region: #{get(space, m-xl)};
+
+  nav {
+    text-transform: uppercase;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 // main {}
@@ -136,7 +149,7 @@ textarea {
 
 input,
 label {
-  line-height: get(line-height, flat);
+  // line-height: get(line-height, flat);
 }
 
 label {

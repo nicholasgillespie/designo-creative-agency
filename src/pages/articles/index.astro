@@ -1,7 +1,7 @@
 ---
 // Imports
 import { getCollection } from "astro:content";
-import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import Layout from '../../layouts/Layout.astro';
 import { CONFIG_BASE } from "../../consts";
 
 // Static Data
@@ -14,7 +14,7 @@ const items = (await getCollection("articles"))
   .sort((a, b) => a.data.order - b.data.order);		
 ---
 
-<LayoutDefault {metaTitle} {metaDescription}>
+<Layout {metaTitle} {metaDescription}>
 	<section class="l-wrapper">
     <ul role="list">
 
@@ -51,4 +51,4 @@ const items = (await getCollection("articles"))
 
     </ul>
 	</section>
-</LayoutDefault>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 // Imports
-import LayoutDefault from '../layouts/LayoutDefault.astro';
+import Layout from '../layouts/Layout.astro';
 import { CONFIG_BASE } from "../consts.ts";
 
 // Static Data
@@ -8,8 +8,9 @@ const metaTitle = "About";
 const metaDescription = "Discover Alex Spencer's journey in web development and design. Based in London, UK, offering innovative web solutions.";
 ---
 
-<LayoutDefault {metaTitle} {metaDescription}>
+<Layout {metaTitle} {metaDescription}>
 	<section class="hero | l-wrapper">
 		<h1>about</h1>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta vero, est reprehenderit magni sit beatae non impedit eum totam obcaecati voluptas laboriosam esse in corporis? Adipisci veniam sequi voluptates commodi nulla quisquam temporibus aperiam ipsam dolores aliquid amet sit, libero voluptatum, in saepe quo dignissimos quae deserunt, earum labore quis et eum qui voluptas. Modi quaerat ab est nobis, quia, autem fugit atque minima, laudantium ea molestiae ut officiis deserunt sapiente fugiat consequatur enim iusto earum asperiores! Deleniti quod a necessitatibus iure porro cumque at laboriosam, facilis neque, totam vitae molestias quibusdam perspiciatis ullam nam velit, odit eaque sunt! Officiis!</p>
 	</section>
-</LayoutDefault>
+</Layout>

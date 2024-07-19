@@ -4,13 +4,16 @@ export const CONFIG_BASE: string =
 
 export const SITE_TITLE = "Designo Creative Agency";
 export const SITE_NAVIGATION = [
-  { label: "Home", url: "/" },
-  { label: "About", url: "/about" },
+  // { label: "Home", url: "/" },
+  { label: "Our Company", url: "/about" },
+  { label: "Locations", url: "/locations" },
   { label: "Contact", url: "/contact" },
 ];
 
 export const SOCIAL_MEDIA = [
-  { label: "GitHub", url: "https://github.com/nicholasgillespie" },
-  { label: "Twitter", url: "https://x.com/nikogillespie" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/gillespie-nicholas" },
+  { label: "Facebook", url: "https://github.com/nicholasgillespie" },
+  { label: "Youtube", url: "https://github.com/nicholasgillespie" },
+  { label: "Twitter", url: "https://github.com/nicholasgillespie" },
+  { label: "Pinterest", url: "https://github.com/nicholasgillespie" },
+  { label: "Instagram", url: "https://github.com/nicholasgillespie" },
 ];

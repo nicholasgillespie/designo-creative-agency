@@ -1,6 +1,8 @@
 ---
 // Imports
 import BaseHead from '../components/BaseHead.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 // Component Props
 const { metaTitle, metaDescription } = Astro.props;
@@ -9,8 +11,14 @@ const { metaTitle, metaDescription } = Astro.props;
 <html lang="en">
 	<BaseHead {metaTitle} {metaDescription} />
 	<body>
+		<!-- Header -->
+		<SiteHeader />
 		<!-- Slot for main content -->
-    <slot />
+		<main id="main">
+			 <slot />
+		</main>
+		<!-- Footer -->
+		<SiteFooter/>
 		<!-- Slot for scripts | <slot slot="scripts"></slot> -->
 		<slot name="scripts"></slot>
 	</body>

@@ -7,6 +7,7 @@ $font-size: (
       "https://utopia.fyi/type/calculator/?c=320,16,1.2,1110,16,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12",
   ),
   "items": (
+    //  font values - individual
     // (
     //   "name": "-2",
     //   "min": 11.11,
@@ -27,25 +28,31 @@ $font-size: (
       "min": 19.2,
       "max": 20,
     ),
-    // (
-    //   "name": "2",
-    //   "min": 23.04,
-    //   "max": 25.00,
-    // ),
-    // (
-    //   "name": "3",
-    //   "min": 27.65,
-    //   "max": 31.25,
-    // ),
     (
-        "name": "4",
-        "min": 33.18,
-        "max": 39.06,
-      ),
+      "name": "2",
+      "min": 23.04,
+      "max": 25,
+    ),
+    (
+      "name": "3",
+      "min": 27.65,
+      "max": 31.25,
+    ),
+    (
+      "name": "4",
+      "min": 33.18,
+      "max": 39.06,
+    ),
     (
       "name": "5",
       "min": 39.81,
       "max": 48.83,
     ),
+    // font value pairs - single steps
+    (
+        "name": "Site Logo",
+        "min": 19.2,
+        "max": 31.25,
+      ),
   ),
 );

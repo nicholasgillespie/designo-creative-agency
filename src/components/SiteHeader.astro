@@ -8,8 +8,19 @@ import CompLogoLink from "./CompLogoLink.astro";
 <header class="site-header">
   <CompSkipLink targetId="main" />
 
-  <div class="l-wrapper l-region l-repel">
-    <CompLogoLink variant="primary" />
-    <CompNavigation label="Main Navigation" />
+  <div class="l-wrapper l-region">
+    <div class="l-repel">
+      <CompLogoLink variant="dark" />
+      <!-- Omit label if navigation links are identical. -->
+      <CompNavigation/>
+    </div>
   </div>
 </header>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+
+  .site-header {
+    --space-region: #{get(space, m-xl)};
+  }
+</style>

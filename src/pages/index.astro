@@ -1,6 +1,6 @@
 ---
 // Imports
-import LayoutDefault from '../layouts/LayoutDefault.astro';
+import Layout from '../layouts/Layout.astro';
 import { CONFIG_BASE } from "../consts.ts";
 
 // Static Data
@@ -8,7 +8,7 @@ const metaTitle = "Home";
 const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web development and design. Specializing in HTML, CSS, JavaScript, and React. Based in London, UK, and open to remote opportunities.";
 ---
 
-<LayoutDefault {metaTitle} {metaDescription}>
+<Layout {metaTitle} {metaDescription}>
 	<section class="hero | l-wrapper">
 		<picture class="hero__image | l-frame">
 			<source 
@@ -59,8 +59,8 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		<div class="about__description | u-border--block">
 			<div class="l-stack">
 				<h2>About Me</h2>
-				<p>I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or <br> cycling. I’d love you to check out my work.</p>
+				<!-- <p>I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or <br> cycling. I’d love you to check out my work.</p> -->
 			</div>
 		</div>
 	</section>
-</LayoutDefault>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 // Imports
-import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { CONFIG_BASE } from "../../consts";
 
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { item, paginationData } = Astro.props;
 ---
 
-<LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
+<Layout metaTitle={item.data.title} metaDescription={item.data.description}>
   <section class="hero | l-wrapper">
     <picture class="hero__image | l-frame">
 			<source 
@@ -112,4 +112,4 @@ const { item, paginationData } = Astro.props;
       </picture>
     </div>
   </section>
-</LayoutDefault>
+</Layout>
