@@ -63,8 +63,8 @@ Develop the main site structure and layout components.
 
 #### Tasks Completed
 
-1. Set up the main site structure, including the base layout and additional layouts as needed (Layout).
-2. Created the CallToAction component, which is called on most pages.
+1. Set up the main site structure, including the base layout and additional layouts as needed ([Layout](../../src/layouts/Layout.astro)).
+2. Created the CallToAction component, which is called on most pages ([CallToAction](../../src/components/CompCallToAction.astro)).
 
 #### Tasks Pending
 
