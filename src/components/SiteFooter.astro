@@ -1,8 +1,9 @@
 ---
 // Imports
-import CompNavigation from "./CompNavigation.astro";
 import CompLogoLink from "./CompLogoLink.astro";
+import CompNavigation from "./CompNavigation.astro";
 import CompSocialLinks from "./CompSocialLinks.astro";
+import SiteSvgs from "./SiteSvgs.astro";
 ---
 
 <footer class="site-footer">
@@ -23,17 +24,24 @@ import CompSocialLinks from "./CompSocialLinks.astro";
         P : +1 253-863-8967<br>
         M : contact@designo.co<br>
       </p>
-      <div>
-        <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, necessitatibus tempore modi distinctio id officia blanditiis illum tempora reprehenderit odio, magnam quisquam voluptas, numquam recusandae eligendi harum velit! Cumque, laudantium!</p> -->
+      <div class="site-footer__contact-social">
+        <CompSocialLinks />
       </div>
-      <!-- <CompSocialLinks /> -->
     </div>
+    <SiteSvgs />
   </div>
 </footer>
 
 <style lang="scss">
   @use "../styles/10-functions/theme-accessor" as *;
   @use "../styles/20-mixins/media-query" as *;
+
+  :global(.social-links) {
+    --space-cluster: var(--space-s);
+    --cluster-direction: row;
+    --cluster-horizontal-alignment: center;
+    --cluster-vertical-alignment: center;
+  }
 
   .site-footer {
     --space-region: #{get(space, xl-2xl)};
@@ -53,7 +61,15 @@ import CompSocialLinks from "./CompSocialLinks.astro";
     color: #8f8e8f;
   }
 
+  .site-footer__contact-social {
+    margin-block-start: auto;
+  }
+
   @include media-query(from, tablet) {
+    :global(.social-links) {
+      --cluster-horizontal-alignment: end;
+    }
+
     .site-footer {
       --repel-direction: row;
       --repel-horizontal-alignment: space-between;
