@@ -19,8 +19,8 @@ import SiteSvgs from "./SiteSvgs.astro";
         3886 Wellington Street<br>
         Toronto, Ontario M9C 3J5<br>
       </p>
-      <p>
-        <b>Contact Us (Central Office)</b><br>
+      <p class="u-font-weight--bold">
+        Contact Us (Central Office)<br>
         P : +1 253-863-8967<br>
         M : contact@designo.co<br>
       </p>
@@ -51,14 +51,17 @@ import SiteSvgs from "./SiteSvgs.astro";
     --space-switcher: var(--space-m);
     text-align: center;
     background-color: get(color, black);
-    color: get(color, white);
+    color: #8f8e8f;
+  }
+
+  .site-footer :global(nav) {
+    padding-block-start: var(--space-gutter);
+    border-block-start: var(--border);
+    inline-size: 100%;
   }
 
   .site-footer__contact {
-    margin-block-start: var(--space-gutter);
-    padding-block-start: var(--space-gutter);
-    border-block-start: var(--border);
-    color: #8f8e8f;
+    padding-block-start: var(--space-m);
   }
 
   .site-footer__contact-social {
@@ -72,11 +75,22 @@ import SiteSvgs from "./SiteSvgs.astro";
 
     .site-footer {
       --repel-direction: row;
-      --repel-horizontal-alignment: space-between;
       --cluster-direction: row;
       --switcher-item-target-width: 0.01rem;
       --space-switcher: var(--space-xl);
       text-align: start;
+    }
+
+    .site-footer :global(nav) {
+      padding-block-start: unset;
+      border-block-start: none;
+      inline-size: unset;
+    }
+
+    .site-footer__contact {
+      margin-block-start: var(--space-gutter);
+      padding-block-start: var(--space-gutter);
+      border-block-start: var(--border);
     }
   }
 </style>
