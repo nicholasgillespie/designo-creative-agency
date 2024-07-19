@@ -1,0 +1,75 @@
+---
+
+---
+
+<section class="call-to-action">
+  <div class="l-wrapper">
+    <div class="call-to-action__content | l-box l-region l-columns">
+      <div class="l-columns--2-3 l-flow">
+        <h2>Let’s talk about your project</h2>
+        <p>Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.</p>
+      </div>
+      <div class="l-columns--1-3">
+        <a href="">get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+
+  .call-to-action {
+    margin-block-start: get(space, xl-2xl);
+    position: relative;
+  }
+  
+  .call-to-action:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    inset-block-start: 50%;
+    z-index: -1;
+    background: get(color, black);
+  }
+  
+  .call-to-action__content {
+    --space-box: #{get(space, s-2xl)};
+    --space-region: #{get(space, xl-2xl)};
+    --columns: 1;
+    background-color: get(color, peach);
+    color: get(color, white);
+    text-align: center;
+    border-radius: var(--radius-l);
+  }
+
+  .call-to-action :where(h2, p) {
+    margin-inline: auto;
+  }
+
+  .call-to-action h2 {
+    max-inline-size: 15ch;
+  }
+
+  .call-to-action p {
+    --space-flow: var(--space-gutter);
+    max-inline-size: 45ch;
+  }
+
+  .call-to-action__content > :last-child {
+    text-align: center;
+    margin-block: auto;
+  }
+
+  @include media-query(from, tablet) {
+    .call-to-action__content {
+      --columns: 12;
+    }
+
+    .call-to-action :where(h2, p) {
+      margin-inline: unset;
+      text-align: start;
+    }
+  }
+</style>
