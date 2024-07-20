@@ -1,5 +1,6 @@
 ---
 import CompButton from "./CompButton.astro";
+import { CONFIG_BASE } from "../../src/consts";
 ---
 
 <section class="call-to-action">
@@ -10,7 +11,7 @@ import CompButton from "./CompButton.astro";
         <p>Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.</p>
       </div>
       <div class="l-columns--1-3">
-        <CompButton href="/contact" text="get in touch" />
+        <CompButton href={`${CONFIG_BASE}/contact`} text="get in touch" />
       </div>
     </div>
   </div>
