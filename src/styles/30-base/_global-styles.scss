@@ -38,6 +38,12 @@ body {
 
     a {
       text-decoration: none;
+      text-underline-offset: 0.1em;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
     }
   }
 }
