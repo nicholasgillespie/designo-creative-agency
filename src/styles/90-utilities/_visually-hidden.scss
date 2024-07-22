@@ -4,7 +4,7 @@
  * Info: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
  */
 
-.u-vh:not(:focus):not(:active) {
+.u-sr-only:not(:focus):not(:active) {
   inline-size: 1px;
   block-size: 1px;
   overflow: hidden;

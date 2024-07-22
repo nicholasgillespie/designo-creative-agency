@@ -2,9 +2,6 @@
 // Imports
 import { SITE_NAVIGATION, CONFIG_BASE } from "../consts";
 
-// Component Props
-const { label } = Astro.props;
-
 // Dynamic Data & Logic
 const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
 const currentPath = currentUrl.pathname.replace(/\/$/, '');
@@ -25,28 +22,13 @@ const isCurrentPage = (itemUrl) => {
 };
 ---
 
-
-
-<nav aria-label={label}>
-  <ul role="list" class="l-cluster">
-    {SITE_NAVIGATION.map(item => (
-      <li>
-        <a 
-          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-          aria-current={isCurrentPage(item.url) ? 'page' : undefined}
-        >{item.label}</a>
-      </li>
-    ))}
-  </ul>
-  <slot></slot>
-</nav>
-
-<style lang="scss">
-  @use "../styles/10-functions/theme-accessor" as *;
-  @use "../styles/20-mixins/media-query" as *;
-
-  .site-header {
-    --space-region: #{get(space, m-xl)};
-    background-color: red;
-  }
-</style>
+<ul role="list" class="l-cluster">
+  {SITE_NAVIGATION.map(item => (
+    <li>
+      <a 
+        href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
+        aria-current={isCurrentPage(item.url) ? 'page' : undefined}
+      >{item.label}</a>
+    </li>
+  ))}
+</ul>

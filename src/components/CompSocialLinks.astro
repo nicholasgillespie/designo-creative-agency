@@ -16,10 +16,10 @@ const iconViewboxMap = {
   {SOCIAL_MEDIA.map(item => (
     <li>
       <a href={item.url}>
+        <span class="u-sr-only">{item.label}</span>
         <svg class="icon" viewBox={iconViewboxMap[item.label]}>
           <use xlink:href={`#${item.label.toLowerCase()}`}></use>
         </svg>
-        <span class="u-vh">{item.label}</span>
       </a>
     </li>
   ))}

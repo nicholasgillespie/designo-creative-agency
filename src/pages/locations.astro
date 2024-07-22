@@ -1,7 +1,6 @@
 ---
 // Imports
 import Layout from '../layouts/Layout.astro';
-import CompCallToAction from '../components/CompCallToAction.astro';
 import { CONFIG_BASE } from "../consts.ts";
 
 // Static Data
@@ -9,9 +8,8 @@ const metaTitle = "Locations";
 const metaDescription = "Get in touch with Alex Spencer for web development projects or collaborations. Reach out today to discuss how we can work together to create something amazing.";
 ---
 
-<Layout {metaTitle} {metaDescription}>
+<Layout {metaTitle} {metaDescription} variant="call-to-action">
 	<section class="l-wrapper">
 		<h1>locations</h1>
 	</section>
-	<CompCallToAction />
 </Layout>

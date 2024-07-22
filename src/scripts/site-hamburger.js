@@ -6,7 +6,7 @@
 // document.addEventListener("DOMContentLoaded", () => {
 //   const siteHeaderNav = document.querySelector(".site-header nav");
 //   if (siteHeaderNav) {
-//     // siteHeaderNav.classList.add("u-vh");
+//     // siteHeaderNav.classList.add("u-sr-only");
 //   }
 // });
 
@@ -25,3 +25,5 @@ console.log("site-hamburger.js loaded");
 //     buttonHamburger.style.display = "block";
 //   }
 // });
+
+// need to use JavaScript to update the value of aria-expanded

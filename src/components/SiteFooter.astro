@@ -1,36 +1,42 @@
 ---
 // Imports
 import CompLogoLink from "./CompLogoLink.astro";
-import CompNavigation from "./CompNavigation.astro";
+import CompNavList from "./CompNavList.astro";
 import CompSocialLinks from "./CompSocialLinks.astro";
 import SiteSvgs from "./SiteSvgs.astro";
+import CompCallToAction from "./CompCallToAction.astro";
+
+// Component Props
+const { variant } = Astro.props;
 ---
 
-<footer class="site-footer">
-  <div class="l-wrapper l-region">
-    <div class="l-repel">
-      <CompLogoLink variant="light" />
-      <!-- Omit label if navigation links are identical. -->
-      <CompNavigation/>
-    </div>
-    <div class="site-footer__contact | l-switcher">
-      <p>
-        <b>Designo Central Office</b><br>
-        3886 Wellington Street<br>
-        Toronto, Ontario M9C 3J5<br>
-      </p>
-      <p class="u-font-weight--bold">
-        Contact Us (Central Office)<br>
-        P : +1 253-863-8967<br>
-        M : contact@designo.co<br>
-      </p>
-      <div class="site-footer__contact-social">
-        <CompSocialLinks />
+<div>
+  {variant === "call-to-action" && <CompCallToAction />}
+  <footer class="site-footer">
+    <div class="l-wrapper l-region">
+      <div class="l-repel">
+        <CompLogoLink variant="light" />
+        <nav><CompNavList /></nav>
       </div>
+      <div class="site-footer__contact | l-switcher">
+        <p>
+          <b>Designo Central Office</b><br>
+          3886 Wellington Street<br>
+          Toronto, Ontario M9C 3J5<br>
+        </p>
+        <p class="u-font-weight--bold">
+          Contact Us (Central Office)<br>
+          P : +1 253-863-8967<br>
+          M : contact@designo.co<br>
+        </p>
+        <div class="site-footer__contact-social">
+          <CompSocialLinks />
+        </div>
+      </div>
+      <SiteSvgs />
     </div>
-    <SiteSvgs />
-  </div>
-</footer>
+  </footer>
+</div>
 
 <style lang="scss">
   @use "../styles/10-functions/theme-accessor" as *;
@@ -52,7 +58,6 @@ import SiteSvgs from "./SiteSvgs.astro";
     text-align: center;
     background-color: get(color, black);
     color: #8f8e8f;
-    z-index: 0;
   }
 
   .site-footer :global(nav) {

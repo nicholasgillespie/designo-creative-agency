@@ -1,7 +1,6 @@
 ---
 // Imports
 import Layout from '../layouts/Layout.astro';
-import CompCallToAction from '../components/CompCallToAction.astro';
 import { CONFIG_BASE } from "../consts.ts";
 
 // Static Data
@@ -11,6 +10,7 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 
 <Layout {metaTitle} {metaDescription} variant="call-to-action">
 	<section class="hero | l-wrapper">
+
 		<!-- <picture class="hero__image | l-frame">
 			<source 
 				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero@2x.jpg 2x`} 
@@ -32,7 +32,7 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 			/>
 		</picture> -->
 		<div class="hero__heading | l-flow">
-			<h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
+			<!-- <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1> -->
 		</div>
 	</section>
 
@@ -64,6 +64,13 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 			</div>
 		</div>
 	</section>
-
-	<CompCallToAction />
 </Layout>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+
+  details {
+    background-color: red;
+  }
+</style>

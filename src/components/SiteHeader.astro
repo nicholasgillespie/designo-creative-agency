@@ -1,14 +1,9 @@
 ---
 // Imports
 import CompSkipLink from "./CompSkipLink.astro";
-import CompNavigation from "./CompNavigation.astro";
 import CompLogoLink from "./CompLogoLink.astro";
-import CompButton from "./CompButton.astro";
+import CompNavList from "./CompNavList.astro";
 ---
-
-<slot slot="scripts">
-  <script src="../scripts/site-hamburger.js"></script>
-</slot>
 
 <header class="site-header">
   <CompSkipLink targetId="main" />
@@ -17,9 +12,25 @@ import CompButton from "./CompButton.astro";
     <div class="l-repel">
       <CompLogoLink variant="dark" />
       <!-- Omit label if navigation links are identical. -->
-      <CompNavigation>
-        <CompButton text="Open Navigation" />
-      </CompNavigation>
+
+      <nav class="l-cluster">
+        <!-- mobile -->
+        <details class="nav-list--vw-small">  
+          <summary>
+            <span class="u-sr-only">Menu</span>
+            <div class="burger-menu">
+              <span class="burger-menu__bar"></span>
+            </div>
+          </summary>
+          <div id="slideout" class="l-region">
+            <CompNavList />
+          </div>
+        </details>
+        <!-- non-mobile -->
+        <div class="nav-list--vw-large">
+          <CompNavList />
+        </div>
+      </nav>
     </div>
   </div>
 </header>
@@ -32,18 +43,83 @@ import CompButton from "./CompButton.astro";
     --space-region: #{get(space, m-xl)};
   }
 
-  .site-header :global(nav ul) {
+  details[open] #slideout {
+    --cluster-direction: column;
+    --cluster-vertical-alignment: start;
+    display: block;
+    position: absolute;
+    inset-block-start: 100%; 
+    inset-inline-end: 0;
+    inline-size: 100%;
+    background-color: get(color, black);
+    color: get(color, white);
+    padding-inline: var(--space-gutter);
+    z-index: 1;
+  }
+  
+  summary {
+    list-style: none;
+  }
+  
+  .burger-menu {
+    min-block-size: 1lh;
+    min-inline-size: 1lh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .burger-menu__bar {
+    --burger-bar-size: 3px;
+    --burger-bar-color: #{get(color, black)};
+
+    inline-size: 100%;
+    block-size: var(--burger-bar-size);
+    position: relative;
+    background: var(--burger-bar-color);
+  }
+
+  .burger-menu__bar::before,
+  .burger-menu__bar::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: var(--burger-bar-size);
+    background: var(--burger-bar-color);
+  }
+
+  .burger-menu__bar::before {
+    inset-block-start: -0.5em;
+  }
+  .burger-menu__bar::after {
+    inset-block-start: 0.5em;
+  }
+
+  details[open] .burger-menu__bar {
+    background: transparent;
+  }
+
+  details[open] .burger-menu__bar::before {
+    transform: rotate(45deg);
+    inset-block-start: 0;
+  }
+
+  details[open] .burger-menu__bar::after {
+    transform: rotate(-45deg);
+    inset-block-start: 0;
+  }
+
+  .nav-list--vw-large {
     display: none;
   }
 
-
   @include media-query(from, tablet) {
-    .site-header button {
+    .nav-list--vw-small {
       display: none;
     }
 
-    .site-header :global(nav ul) {
-      display: flex;
+    .nav-list--vw-large {
+      display: block;
     }
   }
 </style>
