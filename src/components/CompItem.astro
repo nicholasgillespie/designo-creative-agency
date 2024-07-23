@@ -16,7 +16,7 @@ function slugify(title) {
     <img 
       class="item__image | l-frame" 
       src={`${CONFIG_BASE}/images/${slugify(metaTitle)}/desktop/image-${slugify(item.data.title)}.jpg`} 
-      alt={`Image of ${item.data.title} ${metaTitle} project`}>
+      alt="">
     <div class="item__content | l-box l-flow">
       <h3>{item.data.title}</h3>
       <p>{item.data.description}</p>
@@ -34,12 +34,14 @@ function slugify(title) {
 		--frame-height: 640;
     display: flex;
   }
-  
-  .item:hover .item__content {
+
+  .item__inner:hover .item__content,
+  .item__inner:focus-visible .item__content {
     background-color: get(color, peach);
   }
   
-  .item:hover .item__content * {
+  .item__inner:hover .item__content *,
+  .item__inner:focus-visible .item__content * {
     color: get(color, white);
   }
   
@@ -67,6 +69,10 @@ function slugify(title) {
   .item__content h3 {
     color: get(color, peach);
     text-transform: uppercase;
+  }
+  .item__content p {
+    max-inline-size: 30ch;
+    margin-inline: auto;
   }
 
 
