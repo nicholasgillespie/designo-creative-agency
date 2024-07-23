@@ -37,12 +37,12 @@ Analyze and extract essential design elements from design files.
 
 #### Tasks Completed
 
-1. Review the Figma file or design mockups.
-   - Figma Design: [Designo Multi-Page Website](https://www.figma.com/design/RB7sXbL1kX3kaEbbtCCe5q/designo-multi-page-website?node-id=0-1)
-2. Partially define project design tokens (e.g., colors, typography). Note: Design tokens for form/input elements are pending.
-   - Tokens Directory: [Design Tokens](../../src/styles/00-settings)
-3. Identify sections, main elements/components, and macro/micro layouts.
-   - Macro Layout Reference: [layout-macro.jpg](../design/layout-macro.jpg)
+- Review the Figma file or design mockups.
+  - Figma Design: [Designo Multi-Page Website](https://www.figma.com/design/RB7sXbL1kX3kaEbbtCCe5q/designo-multi-page-website?node-id=0-1)
+- Partially define project design tokens (e.g., colors, typography). Note: Design tokens for form/input elements are pending.
+  - Tokens Directory: [Design Tokens](../../src/styles/00-settings)
+- Identify sections, main elements/components, and macro/micro layouts.
+  - Macro Layout Reference: [layout-macro.jpg](../design/layout-macro.jpg)
 
 #### Time Management
 
@@ -63,12 +63,12 @@ Develop the main site structure and layout components.
 
 #### Tasks Completed
 
-1. Set up the main site structure, including the base layout and additional layouts as needed ([Layout](../../src/layouts/Layout.astro)).
-2. Created the CallToAction component, which is called on most pages ([CallToAction](../../src/components/CompCallToAction.astro)).
+- Set up the main site structure, including the base layout and additional layouts as needed ([Layout](../../src/layouts/Layout.astro)).
+- Created the CallToAction component, which is called on most pages ([CallToAction](../../src/components/CompCallToAction.astro)).
 
 #### Tasks Pending
 
-3. Integration of essential components is partially complete. The Navigation, SkipLink, SiteFooter, SiteHead, and SiteHeader have been implemented. However, the functionality and responsive design of the Navigation component, especially the hamburger menu for mobile navigation, still need to be addressed.
+- Integration of essential components is partially complete. The Navigation, SkipLink, SiteFooter, SiteHead, and SiteHeader have been implemented. However, the functionality and responsive design of the Navigation component, especially the hamburger menu for mobile navigation, still need to be addressed.
 
 #### Time Management
 
@@ -90,7 +90,7 @@ Continuing the development of the site structure and layout components, focusing
 
 #### Tasks Completed
 
-1. Completed the implementation of the hamburger menu for mobile navigation, ensuring full integration with essential components.
+- Completed the implementation of the hamburger menu for mobile navigation, ensuring full integration with essential components.
 
 #### Time Management
 
@@ -99,8 +99,34 @@ Continuing the development of the site structure and layout components, focusing
 
 #### Notes
 
-- **TODO:** Define design tokens for the form/input elements. (Carried over from 2024-07-19)
-- **TODO:** Develop and integrate all website sections and components with a focus on accessibility and interactivity.
+- ~~**TODO:** Define design tokens for the form/input elements.~~ (Carried over to 2024-07-23)
+
+## Date: 2024-07-23
+
+### Component and Section Development
+
+#### Task Description
+
+Develop and integrate all website sections and components with a focus on accessibility and interactivity.
+
+#### Tasks Completed
+
+- Initiated the design for pages dedicated to showcasing web-design, app-design, and graphic-design content. The layout was structured to showcase the projects.
+
+#### Tasks Pending
+
+- Implement navigation links for seamless transition between web-design, app-design, and graphic-design pages.
+- Begin development on the Home, About, Locations, and Contact pages, focusing on layout design, content integration, and accessibility.
+
+#### Time Management
+
+- Estimated Time: 3 - 5 days
+- Actual Time Spent: 1 day (ongoing)
+
+#### Notes
+
+- **TODO:** Define design tokens for the form/input elements. (Carried over from 2024-07-22)
+- **TODO:** Implement navigation links and start development on additional pages (Home, About, Locations, Contact) to ensure seamless integration and accessibility across the website.
 
 <!-- # Progress Log
 

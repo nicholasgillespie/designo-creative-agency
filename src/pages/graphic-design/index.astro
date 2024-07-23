@@ -1,0 +1,119 @@
+---
+// Imports
+import { getCollection } from "astro:content";
+import Layout from '../../layouts/Layout.astro';
+import { CONFIG_BASE } from "../../consts";
+import CompButton from "../../components/CompButton.astro";
+
+// Static Data
+const metaTitle = "App Design";
+const metaDescription = "Discover Alex Spencer's portfolio: innovative web development, unique designs, and coding solutions in HTML, CSS, and React. Based in London, ready for your next project.";
+
+// Dynamic Data & Logic
+const items = (await getCollection("graphic-design"));
+
+  // .filter(item => item.data.featured === true)
+  // .sort((a, b) => a.data.order - b.data.order);		
+---
+
+<Layout {metaTitle} {metaDescription}>
+	<section class="l-wrapper">
+    <ul role="list" class="l-grid">
+
+      {items.length > 0 ? (
+        items.map((item) => (
+          <li class="l-flow">
+            <h2>{item.data.title}</h2>
+            <p>{item.data.description}</p>
+          </li>
+        ))
+      ) : (
+        <p>No values found.</p>
+      )}
+
+    </ul>
+	</section>
+</Layout>
+
+<style lang="scss">
+	@use "../../styles/20-mixins/media-query" as *;
+
+	.articles {
+		--switcher-item-target-width: 39rem;
+
+		& + * {
+			margin-block-start: var(--space-2xl);
+		}
+
+		&:nth-of-type(even) {
+			flex-direction: row-reverse;
+		}
+
+		&__picture {
+			--frame-width: 311;
+			--frame-height: 288;
+			block-size: 100%;
+		}
+
+		&__description {
+			display: inline-flex;
+
+			& > div {
+				padding-block-start: var(--space-l);
+				padding-block-end: var(--space-s-l);
+			}
+		}
+	}
+
+	@include media-query(from, tablet) {
+		.articles {
+			--switcher-item-target-width: 0.001rem;
+			--switcher-vertical-alignment: stretch;
+
+			&:nth-of-type(odd) .articles__description {
+				& > div {
+					margin-inline-start: var(--space-l);
+				}
+			}
+
+			&:nth-of-type(even) .articles__description {
+				& > div {
+					margin-inline-end: var(--space-l);
+				}
+			}
+			
+			&__picture {
+				--frame-width: 339;
+				--frame-height: 314;
+				margin-block: auto;
+			}
+
+			&__description {
+				--stack-vertical-alignment: center;
+
+				:first-child:not(p) {
+					inline-size: 100%;
+				}
+
+				p {
+					max-inline-size: 35ch;
+				}
+			}
+		}
+	}
+
+	@include media-query(from, desktop) {
+		.articles {			
+			&__picture {
+				--frame-width: 540;
+				--frame-height: 500;
+			}
+
+			&__description {
+				& > :is(div, #specBoost) {
+					margin-inline: var(--space-xl);
+				}
+			}
+		}
+	}
+</style>

@@ -7,8 +7,7 @@ const { variant = "dark" } = Astro.props;
 ---
 
 <a href={CONFIG_BASE === "" ? "/" : CONFIG_BASE}>
-  <img class="site-logo" src={`${CONFIG_BASE}/images/shared/desktop/logo-${variant}.png`} alt="">
-  <span class="u-sr-only">{SITE_TITLE}</span>  
+  <img class="site-logo" src={`${CONFIG_BASE}/images/shared/desktop/logo-${variant}.png`} alt={SITE_TITLE}>
 </a>
 
 <style lang="scss">

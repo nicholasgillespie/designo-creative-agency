@@ -22,7 +22,7 @@ import { CONFIG_BASE } from "../../src/consts";
   @use "../styles/20-mixins/media-query" as *;
 
   .call-to-action {
-    margin-block-start: get(space, xl-2xl);
+    // margin-block-start: get(space, xl-2xl);
     position: relative;
   }
 
@@ -36,7 +36,7 @@ import { CONFIG_BASE } from "../../src/consts";
   
   .call-to-action__content {
     --space-box: #{get(space, s-2xl)};
-    --space-region: #{get(space, xl-2xl)};
+    --space-region: var(--space-region-s);
     --columns: 1;
     background-color: get(color, peach);
     background-image: url('/images/shared/desktop/bg-pattern-call-to-action.svg');

@@ -54,7 +54,7 @@ import CompNavList from "./CompNavList.astro";
     background-color: get(color, black);
     color: get(color, white);
     padding-inline: var(--space-gutter);
-    z-index: 1;
+    z-index: 999;
   }
   
   summary {
@@ -77,6 +77,7 @@ import CompNavList from "./CompNavList.astro";
     block-size: var(--burger-bar-size);
     position: relative;
     background: var(--burger-bar-color);
+    transition: background 0.3s ease;
   }
 
   .burger-menu__bar::before,
@@ -86,6 +87,7 @@ import CompNavList from "./CompNavList.astro";
     inline-size: 100%;
     block-size: var(--burger-bar-size);
     background: var(--burger-bar-color);
+    transition: transform 0.3s ease, inset-block-start 0.3s ease;
   }
 
   .burger-menu__bar::before {

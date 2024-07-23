@@ -1,0 +1,119 @@
+---
+// Imports
+import { getCollection } from "astro:content";
+import Layout from '../../layouts/Layout.astro';
+import { CONFIG_BASE } from "../../consts";
+import CompItem from "../../components/CompItem.astro";
+
+// Static Data
+const metaTitle = "Web Design";
+const metaDescription = "We build websites that serve as powerful marketing tools and bring memorable brand experiences.";
+
+// Dynamic Data & Logic
+const items = (await getCollection("web-design"));
+function slugify(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+---
+
+<Layout {metaTitle} {metaDescription} variant="call-to-action">
+	<section class="header | l-wrapper">
+		<div class="header__inner | l-region l-flow l-box">
+			<h1>{metaTitle}</h1>
+			<p>{metaDescription}</p>
+		</div>
+	</section>
+
+	<section class="services | l-wrapper">
+		<h2 class="u-sr-only">Our {metaTitle} Services</h2>
+    <ul role="list" class="l-grid">
+      {items.length > 0 ? (
+        items.map((item) => (
+          <CompItem	item={item} metaTitle={metaTitle} />
+        ))
+      ) : (
+        <p>No values found.</p>
+      )}
+    </ul>
+	</section>
+</Layout>
+
+<style lang="scss">
+	@use "../../styles/10-functions/theme-accessor" as *;
+	@use "../../styles/20-mixins/media-query" as *;
+
+	section {
+		margin-block-end: var(--space-region);
+	}
+	
+	.header {
+		--space-wrapper: 0;
+		color: get(color, white);
+		text-align: center;
+		z-index: 1;
+	}
+
+	.header__inner {
+		--space-region: var(--space-region-s)
+	}
+	
+	.header__inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: get(color, peach);
+		background-repeat: no-repeat;
+		background-image: url('/images/shared/desktop/bg-pattern-small-circle.svg');
+    background-position: 70% center;
+    z-index: -1;
+
+	}
+
+	.header h1, 
+	.header p {
+		margin-inline: auto;
+		max-inline-size: 40ch;
+	}
+
+	.services {
+		--grid-item-size-min: 99rem;
+	}
+	
+	.services .l-grid {
+		align-items: stretch;
+	}
+
+	@include media-query(from, tablet) {
+		.header {
+			--space-wrapper: var(--space-gutter);
+			--box-radius: var(--radius-l);
+		}
+
+		.header__inner {
+			overflow: hidden;
+		}
+		
+		.header__inner::before {
+			background-image: url('/images/shared/desktop/bg-pattern-call-to-action.svg');
+			background-position: right center;
+			transform: scaleY(-1);
+		}
+	}
+
+	@include media-query(from, desktop) {
+		.services {
+			--grid-item-size-min: clamp(12.5rem, 0rem + 25vw, 20rem);
+		}
+
+		.services::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			inset-block-start: calc(var(--space-region) * -2 - 2lh - 1em);
+			inset-inline-start: calc(var(--space-region) * -1);
+			background-image: url('/images/shared/desktop/bg-pattern-leaf.svg');
+			background-repeat: no-repeat;
+			z-index: -1;
+		}
+	}
+</style>
