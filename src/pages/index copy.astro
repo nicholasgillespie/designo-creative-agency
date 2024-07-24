@@ -1,0 +1,88 @@
+---
+// Imports
+import Layout from '../layouts/Layout.astro';
+import { CONFIG_BASE } from "../consts.ts";
+
+// Static Data
+const metaTitle = "Home";
+const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web development and design. Specializing in HTML, CSS, JavaScript, and React. Based in London, UK, and open to remote opportunities.";
+---
+
+<Layout {metaTitle} {metaDescription} variant="call-to-action">
+	<section class="header | l-wrapper">
+		<div class="header__inner | l-region l-flow l-box">
+			<h1>{metaTitle}</h1>
+			<p>{metaDescription}</p>
+		</div>
+	</section>
+
+	<section class="hero | l-wrapper">
+
+		<a href={`${CONFIG_BASE}/app-design`}>app design</a>
+		<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
+		<a href={`${CONFIG_BASE}/web-design`}>web design</a>
+
+		<!-- <picture class="hero__image | l-frame">
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero@2x.jpg 2x`} 
+				media="(min-width: 55.001rem)" 
+				type="image/jpg"
+			/>
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero@2x.jpg 2x`} 
+				media="(min-width: 40.001rem)" .
+				type="image/jpg"
+			/>
+			<img 
+				src={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg`} 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero@2x.jpg 2x`} 
+				alt={`Image of a screen displaying the Manage project`} 
+				width="311"
+				height="271"
+				loading="eager"
+			/>
+		</picture> -->
+	</section>
+
+</Layout>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+
+	.header {
+		--space-wrapper: 0;
+		--space-box: var(--space-s-2xl);
+		z-index: 1;
+	}
+
+	.header__inner {
+		--space-region: var(--space-region-s);
+		
+	}
+	
+	.header__inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: get(color, peach);
+		background-repeat: no-repeat;
+		background-image: url('/images/home/desktop/bg-pattern-hero-home.svg');
+    background-position: right;
+    z-index: -1;
+	}
+
+	@include media-query(from, tablet) {
+		.header {
+			--space-wrapper: var(--space-gutter);
+			--box-radius: var(--radius-l);
+		}
+
+		.header__inner {
+			overflow: hidden;
+		}
+	}
+
+	// @include media-query(from, desktop) {
+	// }
+</style>

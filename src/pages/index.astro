@@ -2,6 +2,7 @@
 // Imports
 import Layout from '../layouts/Layout.astro';
 import { CONFIG_BASE } from "../consts.ts";
+import CompButton from '../components/CompButton.astro';
 
 // Static Data
 const metaTitle = "Home";
@@ -9,72 +10,129 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 ---
 
 <Layout {metaTitle} {metaDescription} variant="call-to-action">
-	<section class="hero | l-wrapper">
-
-		<a href={`${CONFIG_BASE}/app-design`}>app design</a>
-		<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
-		<a href={`${CONFIG_BASE}/web-design`}>web design</a>
-
-		<!-- <picture class="hero__image | l-frame">
-			<source 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero@2x.jpg 2x`} 
-				media="(min-width: 55.001rem)" 
-				type="image/jpg"
-			/>
-			<source 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero@2x.jpg 2x`} 
-				media="(min-width: 40.001rem)" .
-				type="image/jpg"
-			/>
-			<img 
-				src={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg`} 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero@2x.jpg 2x`} 
-				alt={`Image of a screen displaying the Manage project`} 
-				width="311"
-				height="271"
-				loading="eager"
-			/>
-		</picture> -->
-		<div class="hero__heading | l-flow">
-			<!-- <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1> -->
-		</div>
-	</section>
-
-	<section id="about" class="about | l-wrapper l-region l-switcher">
-		<!-- <picture class="about__image | l-frame">
-			<source 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-profile@2x.jpg 2x`} 
-				media="(min-width: 55.001rem)" 
-				type="image/jpg"
-			/>
-			<source 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-profile@2x.jpg 2x`} 
-				media="(min-width: 40.001rem)" .
-				type="image/jpg"
-			/>
-			<img 
-				src={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile.jpg`} 
-				srcset={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile@2x.jpg 2x`} 
-				alt={`Image of a screen displaying the Manage project`} 
-				width="311"
-				height="346"
-				loading="eager"
-			/>
-		</picture> -->
-		<div class="about__description | u-border--block">
-			<div class="l-stack">
-				<h2>About Me</h2>
-				<!-- <p>I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or <br> cycling. I’d love you to check out my work.</p> -->
+	<section class="header | l-wrapper">
+		<div class="header__inner | l-columns l-region l-box">
+			<div class="header__content | l-columns--3-5 l-flow">
+				<h1>Award-winning custom designs and digital branding solutions</h1>
+				<p>With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.</p>
+				<CompButton href={`${CONFIG_BASE}/about`} text="learn more" />
+			</div>
+			<div class="header__image |  l-columns--2-5">
+				<img class="l-frame" src={`${CONFIG_BASE}/images/home/desktop/image-hero-phone.png`} alt="">				
 			</div>
 		</div>
 	</section>
+
+	<section class="hero | l-wrapper">
+		<a href={`${CONFIG_BASE}/app-design`}>app design</a>
+		<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
+		<a href={`${CONFIG_BASE}/web-design`}>web design</a>
+	</section>
+
 </Layout>
 
 <style lang="scss">
   @use "../styles/10-functions/theme-accessor" as *;
   @use "../styles/20-mixins/media-query" as *;
 
-  details {
-    background-color: red;
-  }
+	.header {
+		--space-wrapper: 0;
+		--space-box: var(--space-s-2xl);
+		--space-flow: 2em;
+		z-index: 1;
+		color: get(color, white);
+		overflow: hidden;
+	}
+	
+	.header__inner {
+		--columns: 1;
+		--space-region: var(--space-region-s) 0;
+		--space-columns: 0;
+	}
+	
+	.header__inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: get(color, peach);
+		background-repeat: no-repeat;
+		background-image: url('/images/home/desktop/bg-pattern-hero-home.svg');
+    background-position: left;
+    z-index: -1;
+	}
+
+	.header__content {
+		text-align: center;
+	}
+
+	.header__content h1 {
+		max-inline-size: 18ch;
+		margin-inline: auto;
+	}
+
+	.header__content p {
+		max-inline-size: 45ch;
+		margin-inline: auto;
+	}
+
+	.header__image {
+		--frame-width: 624 ;
+		--frame-height: 624;
+	}
+
+	.header__image img {
+		block-size: 100%;
+		inline-size: 100%;
+		transform: scale(1.3);
+		object-fit: cover;
+		object-position: center top;
+	}
+
+	@include media-query(from, tablet) {
+		.header {
+			--space-wrapper: var(--space-gutter);
+			--box-radius: var(--radius-l);
+		}
+		
+		.header__inner {
+			overflow: hidden;
+		}
+
+		.header__inner::before {
+			content: "";
+			background-position: 5rem;
+		}
+
+		.header__image {
+			overflow: hidden;
+			--frame-width: 624 ;
+			--frame-height: 624;
+		}
+	}
+	
+	@include media-query(from, desktop) {
+		.header__inner {
+			--columns: 12;
+			--space-columns: var(--space-gutter);
+		}
+
+		.header__inner::before {
+			content: "";
+			background-position: 100% 0%;
+		}
+
+		.header__content {
+			text-align: start;
+			margin-block-end: var(--space-s-2xl);
+		}
+
+		.header__content h1,
+		.header__content p {
+			margin-inline: unset;
+		}
+
+		.header__image {
+			--frame-height: 724;
+		}
+	}
 </style>
