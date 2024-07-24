@@ -1,0 +1,123 @@
+---
+// Imports
+import { CONFIG_BASE } from "../consts";
+
+// Comp Props
+const { currentPage } = Astro.props;
+
+// Dynamic Data & Logic
+const allPages = ['web-design', 'app-design', 'graphic-design'];
+const otherPages = allPages.filter(page => page !== currentPage);
+const imgLink = otherPages.map(page => page === 'web-design' ? `${page}-small` : page);
+---
+
+<section class="page-links | l-wrapper l-switcher">
+  <h2 class="u-sr-only">Page Navigation</h2>
+
+  <a href={`${CONFIG_BASE}/${otherPages[0]}`} class="page-link">
+    <picture class="page-link__image | l-frame l-box">
+      <source
+        srcset={`${CONFIG_BASE}/images/home/desktop/image-${otherPages[0]}.jpg`}
+        media="(min-width: 50.001rem)"
+        type="image/jpg"
+      />
+      <source
+        srcset={`${CONFIG_BASE}/images/home/tablet/image-${otherPages[0]}.jpg`}
+        media="(min-width: 37.501rem)" .
+        type="image/jpg"
+      />
+      <img
+        src={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[0]}.jpg`}
+        srcset={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[0]}.jpg`}
+        alt={`Image of a screen displaying the Manage project`}
+        width="327"
+        height="250"
+        loading="lazy"
+      />
+    </picture>
+    <div class="page-link__content | l-flow">
+      <h3>{otherPages[0]}</h3>
+      <p>View Projects</p>
+    </div>
+  </a>
+
+  <a href={`${CONFIG_BASE}/${otherPages[1]}`} class="page-link">
+    <picture class="page-link__image | l-frame l-box">
+      <source
+        srcset={`${CONFIG_BASE}/images/home/desktop/image-${otherPages[1]}.jpg`}
+        media="(min-width: 50.001rem)"
+        type="image/jpg"
+      />
+      <source
+        srcset={`${CONFIG_BASE}/images/home/tablet/image-${otherPages[1]}.jpg`}
+        media="(min-width: 37.501rem)" .
+        type="image/jpg"
+      />
+      <img
+        src={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[1]}.jpg`}
+        srcset={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[1]}.jpg`}
+        alt={`Image of a screen displaying the Manage project`}
+        width="327"
+        height="250"
+        loading="lazy"
+      />
+    </picture>
+    <div class="page-link__content | l-flow">
+      <h3>{otherPages[1]}</h3>
+      <p>View Projects</p>
+    </div>
+  </a>
+</section>
+
+
+<style lang="scss">
+	@use "../styles/10-functions/theme-accessor" as *;
+	@use "../styles/20-mixins/media-query" as *;
+
+	.page-link {
+    --frame-width: 327
+    --frame-height: 250;
+    --switcher-item-target-width: 99rem;
+    border-radius: var(--radius-l);
+		position: relative;
+	}
+  
+  .page-link__image {
+    --space-box: 0;
+    border-radius: var(--radius-l);
+  }
+
+	.page-link__content {
+		position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+		transform: translate(-50%, -50%);
+    color: get(color, white);
+    text-align: center;
+    text-transform: uppercase;
+	}
+  
+  .page-link__content h3 {
+    text-transform: uppercase;
+    font-size: get(font-size, 3);
+  }
+  
+  .page-link__content p {
+    font-size: get(font-size, -1);
+  }
+
+	@include media-query(from, tablet) {
+    .page-link {
+      --frame-width: 300
+      --frame-height: 250;
+    }
+	}
+
+	@include media-query(from, desktop) {
+    .page-link {
+      --frame-width: 541
+      --frame-height: 308;
+      --switcher-item-target-width: 0.01rem;
+    }
+	}
+</style>

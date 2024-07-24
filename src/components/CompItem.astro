@@ -1,21 +1,21 @@
 ---
 // Imports
 import { CONFIG_BASE } from "../consts";
+import { slugify } from "../scripts/helpers/slugify";
 
 // Comp Props
 const { item, metaTitle } = Astro.props;
 
 // Dynamic Data & Logic
-function slugify(title) {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
+const itemTitleSlug = slugify(item.data.title);
+const finalSlug = itemTitleSlug === 'tim-brown' ? 'change' : itemTitleSlug;
 ---
 
 <li class="item">
   <a href="" class="item__inner">
     <img 
       class="item__image | l-frame" 
-      src={`${CONFIG_BASE}/images/${slugify(metaTitle)}/desktop/image-${slugify(item.data.title)}.jpg`} 
+      src={`${CONFIG_BASE}/images/${slugify(metaTitle)}/desktop/image-${finalSlug}.jpg`}
       alt="">
     <div class="item__content | l-box l-flow">
       <h3>{item.data.title}</h3>
