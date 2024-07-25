@@ -64,10 +64,10 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 	@include media-query(from, tablet) {	
     .value {
       --sidebar-vertical-alignment: center;
+			--sidebar-target-width: var(--item-size-min);
     }	
 
 		.value__image {
-			--sidebar-target-width: var(--item-size-min);
 		}
 
 		.value__image img {
