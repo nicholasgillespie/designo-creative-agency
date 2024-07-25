@@ -1,0 +1,92 @@
+---
+// Comp Props
+const { imgSrc, imgAlt, title, description } = Astro.props;
+---
+
+<div class="value | l-sidebar">
+  <div class="value__image">
+    <img src={imgSrc} alt={imgAlt}>
+  </div>
+  <div class="value__content | l-flow">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>
+
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+	
+	.value__image {
+    inline-size: 70%;
+		position: relative;
+	}
+
+	.value__image img {
+		inline-size: 70%;
+		margin-inline: auto;
+	}
+
+	.value__image::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/images/shared/desktop/bg-pattern-small-circle.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: auto 100%;
+		z-index: -1;
+	}
+
+	.value__content {
+		text-align: center;
+	}
+
+	.value__content h3 {
+		font-size: get(font-size, 3);
+		text-transform: uppercase;
+	}
+
+	.value__content p {
+		--space-flow: var(--space-l);
+		max-inline-size: 35ch;
+		margin-inline: auto;
+	}
+
+	@include media-query(from, tablet) {	
+    .value {
+      --sidebar-vertical-alignment: center;
+    }	
+
+		.value__image img {
+			inline-size: 100%;
+		}
+
+		.value__content {
+			text-align: start;
+		}
+
+		.value__content h3,
+		.value__content p {
+			--space-flow: var(--space-m);
+			max-inline-size: var(--measure);
+			margin-inline: unset;
+		}
+	}
+	
+	@include media-query(from, desktop) {	
+    .value__image img {
+			inline-size: 70%;
+		}
+
+		.value__content {
+			text-align: center;
+		}
+
+		.value__content p {
+			max-inline-size: 36ch;
+      margin-inline: auto;
+		}
+	}
+</style>

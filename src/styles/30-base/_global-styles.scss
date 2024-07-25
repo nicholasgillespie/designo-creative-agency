@@ -6,7 +6,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  outline: solid 1px lightpink;
+  // outline: solid 1px lightpink;
 }
 
 // GLOBAL SETTINGS ////////////////////
@@ -83,8 +83,11 @@ h6 {
   // font-size: get(font-size, 3);
 }
 
+/* This is quite a new property, so we want code styles to at least, not be huge */
 @supports not (font-size-adjust: from-font) {
-  //
+  :is(code, kbd, samp) {
+    font-size: 0.85em;
+  }
 }
 
 // CONTENT ELEMENTS ////////////////////

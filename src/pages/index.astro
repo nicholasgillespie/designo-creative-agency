@@ -3,11 +3,19 @@
 import Layout from '../layouts/Layout.astro';
 import { CONFIG_BASE } from "../consts.ts";
 import CompButton from '../components/CompButton.astro';
+import CompPageLinksItem from '../components/CompPageLinksItem.astro';
+import CompCard from '../components/CompCard.astro';
 
 // Static Data
 const metaTitle = "Home";
 const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web development and design. Specializing in HTML, CSS, JavaScript, and React. Based in London, UK, and open to remote opportunities.";
 ---
+
+<!-- <section class="hero | l-wrapper">
+	<a href={`${CONFIG_BASE}/app-design`}>app design</a>
+	<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
+	<a href={`${CONFIG_BASE}/web-design`}>web design</a>
+</section> -->
 
 <Layout {metaTitle} {metaDescription} variant="call-to-action">
 	<section class="header | l-wrapper">
@@ -23,10 +31,34 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		</div>
 	</section>
 
-	<section class="hero | l-wrapper">
-		<a href={`${CONFIG_BASE}/app-design`}>app design</a>
-		<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
-		<a href={`${CONFIG_BASE}/web-design`}>web design</a>
+	<section class="services | l-wrapper l-switcher">
+		<h2 class="u-sr-only">Our Services</h2>
+		<CompPageLinksItem pageToShow="web-design" variant="home" />
+		<div class="l-stack">
+			<CompPageLinksItem pageToShow="app-design" />
+			<CompPageLinksItem pageToShow="graphic-design" />
+		</div>
+	</section>
+
+	<section class="values | l-wrapper l-switcher">
+		<CompCard 
+			imgSrc={`${CONFIG_BASE}/images/home/desktop/illustration-passionate.svg`} 
+			imgAlt="" 
+			title="Passionate" 
+			description="Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions." 
+		/>
+		<CompCard
+			imgSrc={`${CONFIG_BASE}/images/home/desktop/illustration-resourceful.svg`} 
+			imgAlt="" 
+			title="Resourceful" 
+			description="Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results that fulfill our clients’ needs."
+		/>
+		<CompCard
+			imgSrc={`${CONFIG_BASE}/images/home/desktop/illustration-friendly.svg`} 
+			imgAlt="" 
+			title="Friendly" 
+			description="We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide."
+		/>
 	</section>
 
 </Layout>
@@ -34,6 +66,10 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 <style lang="scss">
   @use "../styles/10-functions/theme-accessor" as *;
   @use "../styles/20-mixins/media-query" as *;
+
+	section {
+		margin-block-end: var(--space-region);
+	}
 
 	.header {
 		--space-wrapper: 0;
@@ -58,7 +94,7 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		background-repeat: no-repeat;
 		background-image: url('/images/home/desktop/bg-pattern-hero-home.svg');
     background-position: left;
-    z-index: -1;
+    z-index: -2;
 	}
 
 	.header__content {
@@ -78,6 +114,7 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 	.header__image {
 		--frame-width: 624 ;
 		--frame-height: 624;
+		z-index: -1;
 	}
 
 	.header__image img {
@@ -86,6 +123,27 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		transform: scale(1.3);
 		object-fit: cover;
 		object-position: center top;
+	}
+
+	.services {
+		--space-switcher: var(--space-gutter-s);
+		--switcher-vertical-alignment: stretch;
+	}
+
+	.services > div {
+		--space-stack: var(--space-gutter-s);
+		--stack-horizontal-alignment: stretch;
+	}
+
+	.services > :global(a picture) {
+		block-size: 100%;
+	}
+
+	
+	.values {
+		--space-switcher: var(--space-region);
+		--space-sidebar: var(--space-xl);
+		--switcher-item-target-width: 99rem;
 	}
 
 	@include media-query(from, tablet) {
@@ -107,6 +165,13 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 			overflow: hidden;
 			--frame-width: 624 ;
 			--frame-height: 624;
+		}
+		
+		.values {
+			--space-switcher: var(--space-l);
+			--space-sidebar: var(--space-l);
+			--sidebar-target-width: var(--item-size-min);
+			--sidebar-content-min-width: 50%;
 		}
 	}
 	
@@ -133,6 +198,10 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 
 		.header__image {
 			--frame-height: 724;
+		}
+		
+		.values {
+			--switcher-item-target-width: 0.01rem;
 		}
 	}
 </style>

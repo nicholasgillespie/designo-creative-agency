@@ -1,6 +1,7 @@
 ---
 // Imports
 import { CONFIG_BASE } from "../consts";
+import CompPageLinksItem from "./CompPageLinksItem.astro";
 
 // Comp Props
 const { currentPage } = Astro.props;
@@ -8,65 +9,13 @@ const { currentPage } = Astro.props;
 // Dynamic Data & Logic
 const allPages = ['web-design', 'app-design', 'graphic-design'];
 const otherPages = allPages.filter(page => page !== currentPage);
-const imgLink = otherPages.map(page => page === 'web-design' ? `${page}-small` : page);
 ---
 
 <section class="page-links | l-wrapper l-switcher">
   <h2 class="u-sr-only">Page Navigation</h2>
-
-  <a href={`${CONFIG_BASE}/${otherPages[0]}`} class="page-link">
-    <picture class="page-link__image | l-frame l-box">
-      <source
-        srcset={`${CONFIG_BASE}/images/home/desktop/image-${otherPages[0]}.jpg`}
-        media="(min-width: 50.001rem)"
-        type="image/jpg"
-      />
-      <source
-        srcset={`${CONFIG_BASE}/images/home/tablet/image-${otherPages[0]}.jpg`}
-        media="(min-width: 37.501rem)" .
-        type="image/jpg"
-      />
-      <img
-        src={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[0]}.jpg`}
-        srcset={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[0]}.jpg`}
-        alt={`Image of a screen displaying the Manage project`}
-        width="327"
-        height="250"
-        loading="lazy"
-      />
-    </picture>
-    <div class="page-link__content | l-flow">
-      <h3>{otherPages[0]}</h3>
-      <p>View Projects</p>
-    </div>
-  </a>
-
-  <a href={`${CONFIG_BASE}/${otherPages[1]}`} class="page-link">
-    <picture class="page-link__image | l-frame l-box">
-      <source
-        srcset={`${CONFIG_BASE}/images/home/desktop/image-${otherPages[1]}.jpg`}
-        media="(min-width: 50.001rem)"
-        type="image/jpg"
-      />
-      <source
-        srcset={`${CONFIG_BASE}/images/home/tablet/image-${otherPages[1]}.jpg`}
-        media="(min-width: 37.501rem)" .
-        type="image/jpg"
-      />
-      <img
-        src={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[1]}.jpg`}
-        srcset={`${CONFIG_BASE}/images/home/mobile/image-${otherPages[1]}.jpg`}
-        alt={`Image of a screen displaying the Manage project`}
-        width="327"
-        height="250"
-        loading="lazy"
-      />
-    </picture>
-    <div class="page-link__content | l-flow">
-      <h3>{otherPages[1]}</h3>
-      <p>View Projects</p>
-    </div>
-  </a>
+  {otherPages.map((pageToShow, i) => (
+    <CompPageLinksItem pageToShow={pageToShow} />
+  ))}
 </section>
 
 
