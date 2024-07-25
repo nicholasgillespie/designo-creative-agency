@@ -64,8 +64,11 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 	@include media-query(from, tablet) {	
     .value {
       --sidebar-vertical-alignment: center;
-			--switcher-item-target-width: 99rem;
     }	
+
+		.value__image {
+			--switcher-item-target-width: 99rem;
+		}
 
 		.value__image img {
 			inline-size: 100%;
