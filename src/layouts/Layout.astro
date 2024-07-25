@@ -5,7 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
 // Component Props
-const { metaTitle, metaDescription, variant } = Astro.props;
+const { metaTitle, metaDescription, class: classList = "", variant } = Astro.props;
 ---
 
 <html lang="en">
@@ -14,7 +14,7 @@ const { metaTitle, metaDescription, variant } = Astro.props;
 		<!-- Header -->
 		<SiteHeader />
 		<!-- Slot for main content -->
-		<main id="main">
+		<main id="main" {...(classList ? { class: classList } : {})}>
 			 <slot />
 		</main>
 		<!-- Footer -->

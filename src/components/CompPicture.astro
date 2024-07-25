@@ -1,0 +1,38 @@
+---
+// Comp Props
+const { 
+  src, 
+  srcset, 
+  alt, 
+  width, 
+  height, 
+  media = {
+    desktop: "50.001rem",
+    tablet: "37.501rem"
+  }, 
+  loading = "lazy", 
+  type = "image/webp",
+  class: classList = ""} = Astro.props;
+  const classes = `l-frame ${classList}`.trim();
+---
+
+<picture class={classes}>
+  <source
+    srcset={srcset.desktop}
+    media=`(min-width: ${media.desktop})`
+    type={type}
+  />
+  <source
+    srcset={srcset.tablet}
+    media=`(min-width: ${media.tablet})`
+    type={type}
+  />
+  <img
+    src={src}
+    srcset={srcset.mobile}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+  />
+</picture>

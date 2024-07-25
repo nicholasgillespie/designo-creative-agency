@@ -11,12 +11,6 @@ const metaTitle = "Home";
 const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web development and design. Specializing in HTML, CSS, JavaScript, and React. Based in London, UK, and open to remote opportunities.";
 ---
 
-<!-- <section class="hero | l-wrapper">
-	<a href={`${CONFIG_BASE}/app-design`}>app design</a>
-	<a href={`${CONFIG_BASE}/graphic-design`}>graphic design</a>
-	<a href={`${CONFIG_BASE}/web-design`}>web design</a>
-</section> -->
-
 <Layout {metaTitle} {metaDescription} variant="call-to-action">
 	<section class="header | l-wrapper">
 		<div class="header__inner | l-columns l-region l-box">
@@ -84,6 +78,8 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		--columns: 1;
 		--space-region: var(--space-region-s) 0;
 		--space-columns: 0;
+		border: none;
+		border-block-end: var(--border);
 	}
 	
 	.header__inner::before {
@@ -139,7 +135,6 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		block-size: 100%;
 	}
 
-	
 	.values {
 		--space-switcher: var(--space-region);
 		--space-sidebar: var(--space-xl);
@@ -154,6 +149,7 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		
 		.header__inner {
 			overflow: hidden;
+			border: var(--border);
 		}
 
 		.header__inner::before {
@@ -162,7 +158,6 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		}
 
 		.header__image {
-			overflow: hidden;
 			--frame-width: 624 ;
 			--frame-height: 624;
 		}
@@ -189,6 +184,14 @@ const metaDescription = "Explore Alex Spencer's portfolio for cutting-edge web d
 		.header__content {
 			text-align: start;
 			margin-block-end: var(--space-s-2xl);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
+
+		.header__content :global(.button) {
+			justify-content: flex-start;
 		}
 
 		.header__content h1,

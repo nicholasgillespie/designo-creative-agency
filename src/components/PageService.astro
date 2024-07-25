@@ -46,7 +46,9 @@ const { metaTitle, metaDescription, items } = Astro.props;
 	}
 
 	.header__inner {
-		--space-region: var(--space-region-s)
+		--space-region: var(--space-region-s);
+		border: none;
+		border-block-end: var(--border);
 	}
 	
 	.header__inner::before {
@@ -82,6 +84,7 @@ const { metaTitle, metaDescription, items } = Astro.props;
 
 		.header__inner {
 			overflow: hidden;
+			border: var(--border);
 		}
 		
 		.header__inner::before {

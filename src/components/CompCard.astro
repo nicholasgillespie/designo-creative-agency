@@ -1,6 +1,9 @@
 ---
+// Imports
+import CompButton from './CompButton.astro';
+
 // Comp Props
-const { imgSrc, imgAlt, title, description } = Astro.props;
+const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 ---
 
 <div class="value | l-sidebar">
@@ -9,7 +12,11 @@ const { imgSrc, imgAlt, title, description } = Astro.props;
   </div>
   <div class="value__content | l-flow">
     <h3>{title}</h3>
-    <p>{description}</p>
+    {variant === "button" ? (
+      <CompButton text={description} variant="secondary" />
+    ) : (
+      <p>{description}</p>
+    )}
   </div>
 </div>
 

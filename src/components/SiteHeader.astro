@@ -41,6 +41,7 @@ import CompNavList from "./CompNavList.astro";
 
   .site-header {
     --space-region: #{get(space, m-xl)};
+    border-block-end: var(--border);
   }
 
   details[open] #slideout {
@@ -55,6 +56,7 @@ import CompNavList from "./CompNavList.astro";
     color: get(color, white);
     padding-inline: var(--space-gutter);
     z-index: 999;
+    border-block-end: var(--border);
   }
   
   summary {
@@ -78,27 +80,31 @@ import CompNavList from "./CompNavList.astro";
     position: relative;
     background: var(--burger-bar-color);
     transition: background 0.3s ease;
+    border: var(--border);
   }
 
   .burger-menu__bar::before,
   .burger-menu__bar::after {
     content: "";
     position: absolute;
-    inline-size: 100%;
+    inline-size: calc(100% + var(--border-width) * 2);
+    inset-inline-start: calc(-1 * var(--border-width));
     block-size: var(--burger-bar-size);
     background: var(--burger-bar-color);
     transition: transform 0.3s ease, inset-block-start 0.3s ease;
+    border: var(--border);
   }
 
   .burger-menu__bar::before {
-    inset-block-start: -0.5em;
+    inset-block-start: calc(-0.4em - var(--border-width));
   }
   .burger-menu__bar::after {
-    inset-block-start: 0.5em;
+    inset-block-start: calc(0.4em + var(--border-width));
   }
 
   details[open] .burger-menu__bar {
     background: transparent;
+    border: none;
   }
 
   details[open] .burger-menu__bar::before {
@@ -116,6 +122,10 @@ import CompNavList from "./CompNavList.astro";
   }
 
   @include media-query(from, tablet) {
+    .site-header {
+      border-block-end: none;
+    }
+
     .nav-list--vw-small {
       display: none;
     }
