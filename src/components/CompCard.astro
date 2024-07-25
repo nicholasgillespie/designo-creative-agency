@@ -83,8 +83,13 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 	}
 	
 	@include media-query(from, desktop) {	
+    .value__image {
+			inline-size: 100%;
+		}
+
     .value__image img {
 			inline-size: 70%;
+			margin-inline: auto;
 		}
 
 		.value__content {
