@@ -157,12 +157,22 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 		--switcher-item-target-width: 99rem;
 	}
 
+	.values :global(.l-sidebar) {
+		--sidebar-direction: column;
+		--sidebar-vertical-alignment: center;
+	}
+
 	.values :global(.button) {
 		--space-flow: var(--space-m);
 	}
 
 	.values :global(.value__content) {
 		text-align: center;
+	}
+
+	.values :global(.value__image img) {
+		block-size: 100%;
+		inline-size: 100%;
 	}
 
 	@include media-query(from, tablet) {
@@ -205,9 +215,10 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 			--sidebar-content-min-width: 100%;
 		}
 
-		.values :global(.value__image) {
-			max-inline-size: 50%;
-			margin-inline: auto;
+		:global(.about) .value__image::before {
+			background-size: 100%;
+			// max-inline-size: 50%;
+			// margin-inline: auto 100%;
 		}
 	}
 
