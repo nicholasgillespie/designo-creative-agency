@@ -64,18 +64,16 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 	@include media-query(from, tablet) {	
     .value {
       --sidebar-vertical-alignment: center;
-			--sidebar-target-width: var(--item-size-min);
+			flex-wrap: nowrap;
     }	
 
-		.value__image {
-		}
-
 		.value__image img {
+			flex-basis: var(--item-size-min, 14rem);
 			inline-size: 100%;
 		}
 
 		.value__content {
-			--sidebar-content-min-width: 1%;
+			// --sidebar-content-min-width: 1%;
 			text-align: start;
 		}
 
@@ -88,6 +86,10 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 	}
 	
 	@include media-query(from, desktop) {	
+		.value {
+			flex-wrap: wrap;
+    }	
+
     .value__image {
 			inline-size: 100%;
 		}
