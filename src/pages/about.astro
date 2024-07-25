@@ -215,10 +215,12 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 			--sidebar-content-min-width: 50%;
 		}
 
+		:global(.about) .value__image {
+			--sidebar-target-width: var(--item-size-min)
+		}
+
 		:global(.about) .value__image::before {
 			background-size: 100%;
-			// max-inline-size: 50%;
-			// margin-inline: auto 100%;
 		}
 	}
 
