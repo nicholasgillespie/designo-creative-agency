@@ -67,8 +67,11 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 			flex-wrap: nowrap;
     }	
 
-		.value__image img {
+		.value__image {
 			flex-basis: var(--item-size-min, 14rem);
+		}
+
+		.value__image img {
 			inline-size: 100%;
 		}
 
