@@ -7,10 +7,10 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
 ---
 
 <div class="value | l-sidebar">
-  <div class="value__image">
+  <div class="value__image | sidebar">
     <img src={imgSrc} alt={imgAlt}>
   </div>
-  <div class="value__content | l-flow">
+  <div class="value__content | not-sidebar l-flow">
     <h3>{title}</h3>
     {variant === "button" ? (
       <CompButton text={description} variant="secondary" />
