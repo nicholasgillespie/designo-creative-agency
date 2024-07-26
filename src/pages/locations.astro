@@ -44,6 +44,70 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 				/>
 			</div>
 		</div>
+		
+		<div class="location | l-columns">
+			<div class="location__content g-block | l-columns--2-3 l-box l-flow">
+				<h2>Australia</h2>
+				<div class="l-switcher">
+					<p>
+						<b>Designo AU Office</b><br>
+						19 Balonne Street<br>
+						New South Wales 2443<br>
+					</p>
+					<p>
+						<b>Contact </b><br>
+						P : (02) 6720 9092<br>
+						M : contact@designo.au<br>
+					</p>
+				</div>
+			</div>
+
+			<div class="location__map | l-columns--1-3">
+				<CompPicture
+					src={`${CONFIG_BASE}/images/locations/desktop/image-map-australia.png`}
+					srcset={{
+						mobile: `${CONFIG_BASE}/images/locations/desktop/image-map-australia.png`,
+						tablet: `${CONFIG_BASE}/images/locations/tablet/image-map-australia.png`,
+						desktop: `${CONFIG_BASE}/images/locations/desktop/image-map-australia.png`
+					}}
+					alt="Map of Australia"
+					width="375"
+					height="320"
+				/>
+			</div>
+		</div>
+		
+		<div class="location | l-columns">
+			<div class="location__content g-block | l-columns--2-3 l-box l-flow">
+				<h2>United Kingdom</h2>
+				<div class="l-switcher">
+					<p>
+						<b>Designo UK Office</b><br>
+						13  Colorado Way<br>
+						Rhyd-y-fro SA8 9GA<br>
+					</p>
+					<p>
+						<b>Contact </b><br>
+						P : 078 3115 1400<br>
+						M : contact@designo.uk<br>
+					</p>
+				</div>
+			</div>
+
+			<div class="location__map | l-columns--1-3">
+				<CompPicture
+					src={`${CONFIG_BASE}/images/locations/desktop/image-map-united-kingdom.png`}
+					srcset={{
+						mobile: `${CONFIG_BASE}/images/locations/desktop/image-map-united-kingdom.png`,
+						tablet: `${CONFIG_BASE}/images/locations/tablet/image-map-uk.png`,
+						desktop: `${CONFIG_BASE}/images/locations/desktop/image-map-united-kingdom.png`
+					}}
+					alt="Map of United Kingdom"
+					width="375"
+					height="320"
+				/>
+			</div>
+		</div>
 	</section>
 </Layout>
 
@@ -58,10 +122,26 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 	.locations {
 		--space-wrapper: 0;
 	}
+			
+	.locations .location:last-of-type .location__content {
+		border-block-end: 0;
+	}
 
 	.location {
 		--columns: 1;
 		grid-gap: 0;
+	}
+
+	.location ~ .location {
+		margin-block-start: var(--space-gutter-s);
+	}
+
+	.location:nth-of-type(even) {
+		direction: rtl;
+	}
+
+	.location:nth-of-type(even) .location__content {
+		direction: ltr;
 	}
 
 	.location__content {
@@ -105,6 +185,14 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 			grid-gap: var(--space-gutter-s);
 		}
 
+		.location ~ .location {
+			margin-block-start: var(--space-region);
+		}
+		
+		.locations .location:last-of-type .location__content {
+			border-block-end: var(--border);
+		}
+
 		.location__content {
 			--switcher-item-target-width: 0.01rem;
 			--box-radius: var(--radius-l);
@@ -126,6 +214,10 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 	@include media-query(from, desktop) {
 		.location {
 			--columns: 12;
+		}
+		
+		.location ~ .location {
+			margin-block-start: var(--space-gutter-s);
 		}
 
 		.location__content {
