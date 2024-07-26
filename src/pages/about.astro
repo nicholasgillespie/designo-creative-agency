@@ -250,8 +250,11 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 		
 		.values {
 			--switcher-item-target-width: 0.01rem;
-			--space-switcher: var(--space-l);
 			justify-content: center
+		}
+		
+		:global(.about) :global(.values) {
+			--space-switcher: var(--space-l);
 		}
 
 		.values .l-sidebar {
