@@ -48,6 +48,21 @@ body {
   }
 }
 
+.g-block {
+  --space-box: var(--space-region-s) var(--space-s-2xl);
+  --box-radius: var(--radius-l);
+  --space-flow: 1.5em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    z-index: -1;
+    border-radius: var(--radius-l);
+  }
+}
+
 // TYPOGRAPHY ////////////////////
 h1,
 h2,

@@ -2,6 +2,7 @@
 // Imports
 import Layout from '../layouts/Layout.astro';
 import { CONFIG_BASE } from "../consts.ts";
+import CompPicture from '../components/CompPicture.astro';
 
 // Static Data
 const metaTitle = "Locations";
@@ -9,7 +10,135 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 ---
 
 <Layout {metaTitle} {metaDescription} variant="call-to-action">
-	<section class="l-wrapper">
-		<h1>locations</h1>
+	<section class="locations | l-wrapper">
+		<h1 class="u-sr-only">Our Locations</h1>
+		
+		<div class="location | l-columns">
+			<div class="location__content g-block | l-columns--2-3 l-box l-flow">
+				<h2>Canada</h2>
+				<div class="l-switcher">
+					<p>
+						<b>Designo Central Office</b><br>
+						3886 Wellington Street<br>
+						Toronto, Ontario M9C 3J5<br>
+					</p>
+					<p>
+						<b>Contact </b><br>
+						P : +1 253-863-8967<br>
+						M : contact@designo.co<br>
+					</p>
+				</div>
+			</div>
+
+			<div class="location__map | l-columns--1-3">
+				<CompPicture
+					src={`${CONFIG_BASE}/images/locations/desktop/image-map-canada.png`}
+					srcset={{
+						mobile: `${CONFIG_BASE}/images/locations/desktop/image-map-canada.png`,
+						tablet: `${CONFIG_BASE}/images/locations/tablet/image-map-canada.png`,
+						desktop: `${CONFIG_BASE}/images/locations/desktop/image-map-canada.png`
+					}}
+					alt="Map of Canada"
+					width="375"
+					height="320"
+				/>
+			</div>
+		</div>
 	</section>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+		
+	section {
+		margin-block-end: var(--space-region);
+	}
+
+	.locations {
+		--space-wrapper: 0;
+	}
+
+	.location {
+		--columns: 1;
+		grid-gap: 0;
+	}
+
+	.location__content {
+		--space-switcher: 1.5em 0;
+		--box-radius: 0;
+		--switcher-item-target-width: 99rem;
+		text-align: center;
+		grid-row-start: 2;
+		border: 0;
+		border-block-end: var(--border);
+	}
+	
+	.location__content::before {
+		--radius-l: 0;
+		background-color: #fdf3f1;
+		background-image: url('/images/home/desktop/bg-pattern-hero-home.svg');
+		background-position: bottom 5rem left 10rem;
+		scale: 1;
+	}
+
+	.location__content h2 {
+		color: get(color, peach);
+	}
+
+	.location__map {
+		display: flex;
+	}
+	
+	.location__map :global(picture) {
+		--frame-width: 375;
+		--frame-height: 320;
+		inline-size: 100%;
+	}
+
+	@include media-query(from, tablet) {
+		.locations {
+			--space-wrapper: unset;
+		}
+
+		.location {
+			grid-gap: var(--space-gutter-s);
+		}
+
+		.location__content {
+			--switcher-item-target-width: 0.01rem;
+			--box-radius: var(--radius-l);
+			text-align: start;
+			border: var(--border);
+		}
+
+		.location__content::before {
+			--radius-l: unset;
+		}
+
+		.location__map :global(picture) {
+			--frame-width: 689;
+			--frame-height: 326;
+			border-radius: var(--radius-l);
+		}
+	}
+
+	@include media-query(from, desktop) {
+		.location {
+			--columns: 12;
+		}
+
+		.location__content {
+			--space-switcher: 1.5em var(--space-gutter);
+			grid-row-start: unset;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.location__map :global(picture) {
+			--frame-width: 375;
+			--frame-height: 320;
+		}
+	}
+</style>
