@@ -3,7 +3,7 @@
 import CompButton from './CompButton.astro';
 
 // Comp Props
-const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
+const { imgSrc, imgAlt, title, description, variant = "", href } = Astro.props;
 ---
 
 <div class="value | l-sidebar">
@@ -13,7 +13,7 @@ const { imgSrc, imgAlt, title, description, variant = "" } = Astro.props;
   <div class="value__content | not-sidebar l-flow">
     <h3>{title}</h3>
     {variant === "button" ? (
-      <CompButton text={description} variant="secondary" />
+      <CompButton text={description} variant="secondary" href={href} />
     ) : (
       <p>{description}</p>
     )}
