@@ -149,6 +149,50 @@ Continuing to develop and integrate all website sections and components with a f
 - Estimated Time: 3 - 5 days
 - Actual Time Spent: 2 day (ongoing)
 
+## Date: 2024-07-25
+
+### Component and Section Development (Continued)
+
+#### Task Description
+
+Continuing to develop and integrate all website sections and components with a focus on accessibility and interactivity.
+
+#### Tasks Completed
+
+- Completed the Home page.
+- Currently working on the About page; experiencing layout issues in production environment.
+
+#### Tasks Pending
+
+- Complete the About page.
+- Begin development on the Locations and Contact pages.
+
+#### Time Management
+
+- Estimated Time: 3 - 5 days
+- Actual Time Spent: 3 days (ongoing)
+
+## Date: 2024-07-26
+
+### Component and Section Development (Continued)
+
+#### Task Description
+
+Continuing to develop and integrate all website sections and components with a focus on accessibility and interactivity.
+
+#### Tasks Completed
+
+- Completed the About and Locations pages.
+
+#### Tasks Pending
+
+- Begin development on the Contact page.
+
+#### Time Management
+
+- Estimated Time: 3 - 5 days
+- Actual Time Spent: 4 days (ongoing)
+
 <!-- # Progress Log
 
 ## Project Duration
