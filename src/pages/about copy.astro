@@ -157,6 +157,24 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 		--switcher-item-target-width: 99rem;
 	}
 
+	.values :global(.l-sidebar) {
+		--sidebar-direction: column;
+		--sidebar-vertical-alignment: center;
+	}
+
+	.values :global(.button) {
+		--space-flow: var(--space-m);
+	}
+
+	.values :global(.value__content) {
+		text-align: center;
+	}
+
+	.values :global(.value__image img) {
+		block-size: 100%;
+		inline-size: 100%;
+	}
+
 	@include media-query(from, tablet) {
 		section {
 			margin-block-end: var(--space-region);
@@ -193,10 +211,16 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 		}
 
 		.values {
-			--space-switcher: var(--space-l);
-			--space-sidebar: var(--space-l);
-			--sidebar-target-width: var(--item-size-min);
+			--space-switcher: var(--space-region);
 			--sidebar-content-min-width: 50%;
+		}
+
+		:global(.about) .value__image {
+			--sidebar-target-width: var(--item-size-min)
+		}
+
+		:global(.about) .value__image::before {
+			background-size: 100%;
 		}
 	}
 
@@ -237,20 +261,11 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 
 		.values {
 			--switcher-item-target-width: 0.01rem;
-			justify-content: center
+			--space-switcher: var(--space-l);
 		}
-
-		.values .l-sidebar {
-			justify-content: center
-		}
-
-		.value__image {
-			inline-size: 100%;
-		}
-
-		.value__image img {
-			inline-size: 70%;
-			background-color: red;
+		
+		.values :global(.value__image) {
+			max-inline-size: unset;
 		}
 	}
 </style>
