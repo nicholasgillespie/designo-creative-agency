@@ -198,6 +198,15 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 			--sidebar-target-width: var(--item-size-min);
 			--sidebar-content-min-width: 50%;
 		}
+
+		// Specific to About Page
+		.values :global(.l-sidebar) {
+			flex-direction: column;
+		}
+
+		.values :global(.not-sidebar) {
+			text-align: center;
+		}
 	}
 
 	@include media-query(from, desktop) {
@@ -251,6 +260,11 @@ const metaDescription = "Discover Alex Spencer's journey in web development and 
 		.value__image img {
 			inline-size: 70%;
 			background-color: red;
+		}
+
+		// Specific to About Page
+		.values :global(.l-sidebar) {
+			flex-direction: row;
 		}
 	}
 </style>
