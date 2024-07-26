@@ -3,7 +3,7 @@
 import { CONFIG_SITE, CONFIG_BASE, SITE_TITLE } from "../consts";
 import "../styles/core.scss";
 // import "../styles/advanced.scss";
-// import ViewTransitions from "astro/components/ViewTransitions.astro";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 // Static Data
 const { metaTitle, metaDescription } = Astro.props;
@@ -39,7 +39,7 @@ const { metaTitle, metaDescription } = Astro.props;
   <meta name="generator" content={Astro.generator} />
 
   <!-- View Transitions -->
-  <!-- <ViewTransitions /> -->
+  <ViewTransitions />
 </head>
 
 <!-- SCSS Imports:
