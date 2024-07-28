@@ -1,15 +1,199 @@
 ---
 // Imports
 import Layout from '../layouts/Layout.astro';
+import CompButton from '../components/CompButton.astro';
+import CompCard from '../components/CompCard.astro';
 import { CONFIG_BASE } from "../consts.ts";
 
 // Static Data
 const metaTitle = "Contact";
-const metaDescription = "Get in touch with Alex Spencer for web development projects or collaborations. Reach out today to discuss how we can work together to create something amazing.";
+const metaDescription = "Contact Designo to discuss your project or idea and discover how we can help your business grow with unique digital experiences. Reach out today!";
 ---
 
 <Layout {metaTitle} {metaDescription}>
-	<section class="l-wrapper">
-		<h1>contact</h1>
+	<section class="contact section | l-wrapper">
+		<div class="section__inner | l-switcher l-region l-box">
+			<div class="section__content | l-flow">
+				<h1>Contact Us</h1>
+				<p>Ready to take it to the next level? Let’s talk about your project or idea and find out how we can help your business grow. If you are looking for unique digital experiences that’s relatable to your users, drop us a line.</p>
+			</div>
+			<form class="l-stack">
+				<div>
+					<label for="name" class="u-sr-only">Name</label>
+					<input type="text" id="name" name="name" placeholder="Name" required />
+				</div>
+				<div>
+					<label for="email" class="u-sr-only">Email Address</label>
+					<input type="email" id="email" name="email" placeholder="Email Address" required />
+				</div>
+				<div>
+					<label for="phone" class="u-sr-only">Phone Address</label>
+					<input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+				</div>
+				<div>
+					<label for="message" class="u-sr-only">Message</label>
+					<textarea id="message" name="message" placeholder="Message" required ></textarea>
+				</div>
+				<CompButton text="Submit" />
+			</form>
+		</div>
+	</section>
+	
+	<section class="values | l-wrapper l-switcher" id="locations">
+		<CompCard 
+			imgSrc={`${CONFIG_BASE}/images/shared/desktop/illustration-canada.svg`} 
+			imgAlt="Picture of Canadian landmark" 
+			title="Canada"
+			description="see location"
+			variant="button"
+			href=`${CONFIG_BASE}/locations`
+		/>
+		<CompCard
+			imgSrc={`${CONFIG_BASE}/images/shared/desktop/illustration-australia.svg`} 
+			imgAlt="Picture of Australian landmark" 
+			title="Australia"
+			description="see location"
+			variant="button"
+			href=`${CONFIG_BASE}/locations`
+		/>
+		<CompCard
+			imgSrc={`${CONFIG_BASE}/images/shared/desktop/illustration-united-kingdom.svg`} 
+			imgAlt="Picture of British landmark" 
+			title="United Kingdom"
+			description="see location"
+			variant="button"
+			href=`${CONFIG_BASE}/locations`
+		/>
 	</section>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
+
+	section {
+		margin-block-end: var(--space-region);
+	}
+
+	.section {
+		--space-wrapper: 0;
+		--space-box: var(--space-s-2xl);
+		--space-flow: 2em;
+	}
+
+	.section__inner {
+		--switcher-item-target-width: 99rem;
+		--switcher-vertical-alignment: center;
+		overflow: hidden;
+	}
+
+	.section__inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-repeat: no-repeat;
+    z-index: -1;
+	}
+
+	.contact {
+		color: get(color, white);
+	}
+	
+	.contact .section__inner {
+		--space-switcher: var(--space-flow) var(--space-gutter);
+	}
+
+	.contact .section__inner::before {
+		background-color: get(color, peach);
+		background-image: url('/images/contact/mobile/bg-pattern-hero-contact-mobile.svg');
+		background-position: top 0rem left 5%;
+	}
+
+	form {
+		--stack-horizontal-alignment: stretch
+	}
+
+	form :global(.button) {
+		margin-inline-start: auto;
+	}
+
+	.values {
+		--space-switcher: var(--space-region);
+		--space-sidebar: var(--space-xl);
+		--switcher-item-target-width: 99rem;
+	}
+
+	@include media-query(from, tablet) {
+		.section {
+			--space-wrapper: unset;
+		}
+		
+		.section__inner {
+			--box-radius: var(--radius-l);
+		}
+
+		.contact .section__inner::before {
+			background-image: url('/images/contact/desktop/bg-pattern-hero-desktop.svg');
+			background-position: top -8rem left -3.5rem;
+			transform-origin: top left;
+			transform: scale(1);
+		}
+
+		.values {
+			--space-switcher: var(--space-region);
+			--space-sidebar: var(--space-xl);
+			--sidebar-target-width: var(--item-size-min);
+			--sidebar-content-min-width: 50%;
+		}
+
+		// Specific to About Page
+		.values :global(.l-sidebar) {
+			flex-direction: column;
+		}
+
+		.values :global(.not-sidebar) {
+			text-align: center;
+		}
+		
+		.values :global(.value__image) :global(img) {
+			inline-size: 70%;
+		}
+	}
+
+	@include media-query(from, desktop) {
+		.contact .section__inner {
+			--switcher-item-target-width: 0.01rem;
+			--space-switcher: var(--space-2xl);
+		}
+
+		.contact .section__inner::before {
+			transform: scale(1.4);
+		}
+
+		.values {
+			--switcher-item-target-width: 0.01rem;
+			justify-content: center
+		}
+		
+		:global(#locations) {
+			--space-switcher: var(--space-l);
+		}
+
+		.values .l-sidebar {
+			justify-content: center
+		}
+
+		.value__image {
+			inline-size: 100%;
+		}
+
+		.value__image img {
+			// inline-size: 70%;
+		}
+
+		// Specific to About Page
+		.values :global(.l-sidebar) {
+			flex-direction: row;
+		}
+	}
+</style>

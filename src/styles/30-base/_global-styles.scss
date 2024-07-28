@@ -159,13 +159,14 @@ select,
 textarea {
   padding: 1em;
   border: var(--input-border, solid transparent var(--border-width));
+  border-block-end: solid 1px get(color, white);
   border-radius: var(--input-radius, var(--radius));
-  background: #e6e6e7;
-  // color: get(color, grayish-dark-blue);
+  background: transparent;
+  color: get(color, white);
   inline-size: 100%;
 
   &::placeholder {
-    color: #9e9ea3;
+    color: #f3c0b5;
   }
 }
 

@@ -16,6 +16,8 @@ html {
 }
 
 body {
+  // --space-gutter: var(--space-s-2xl);
+
   &::before,
   &::after {
     content: "";
