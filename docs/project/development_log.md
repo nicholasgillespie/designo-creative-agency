@@ -1,5 +1,9 @@
 # Website Development Project Log
 
+## Project Duration
+
+The project was actively developed over a period of 8 full days, starting on 2024-07-18, and concluding on 2024-07-28.
+
 ## Project: Designo Creative Agency
 
 ## Date: 2024-07-18
@@ -125,7 +129,7 @@ Develop and integrate all website sections and components with a focus on access
 
 #### Notes
 
-- **TODO:** Define design tokens for the form/input elements. (Carried over from 2024-07-22)
+- ~~**TODO:** Define design tokens for the form/input elements.~~ (Completed on 2024-07-28)
 - ~~**TODO:** Implement navigation links and start development on additional pages (Home, About, Locations, Contact) to ensure seamless integration and accessibility across the website.~~ Completed on 2024-07-24.
 
 ## Date: 2024-07-24
@@ -192,6 +196,23 @@ Continuing to develop and integrate all website sections and components with a f
 
 - Estimated Time: 3 - 5 days
 - Actual Time Spent: 4 days (ongoing)
+
+## Date: 2024-07-28
+
+### Component and Section Development (Continued)
+
+#### Task Description
+
+Continuing to develop and integrate all website sections and components with a focus on accessibility and interactivity.
+
+#### Tasks Completed
+
+- Completed the Contact page.
+
+#### Time Management
+
+- Estimated Time: 3 - 5 days
+- Actual Time Spent: 5 days (ongoing)
 
 <!-- # Progress Log
 
